@@ -588,3 +588,24 @@ Map {
 	line-dasharray: 4,6;
 	line-cap: butt;
 }
+	
+	
+/*//////// Labels! */
+
+#road-labels[highway!=motorway][min_zoom=10][zoom>=10] name_abbr,
+#road-labels[highway!=motorway][min_zoom=11][zoom>=11] name_abbr,
+#road-labels[highway!=motorway][min_zoom=12][zoom>=12] name_abbr,
+#road-labels[highway!=motorway][min_zoom=13][zoom>=13] name_abbr,
+#road-labels[highway!=motorway][min_zoom=14][zoom>=14] name_abbr,
+#road-labels[highway!=motorway][min_zoom=15][zoom>=15] name_abbr
+{
+    text-placement: line;
+    text-max-char-angle-delta: 20;
+
+    text-face-name: 'DejaVu Sans Book';
+    text-fill: #444;
+    text-size: 12;
+    
+    text-halo-fill: #f7f7e6;
+    text-halo-radius: 2;
+}
