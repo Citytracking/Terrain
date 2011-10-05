@@ -44,6 +44,11 @@ Map {
 	line-color: #999;
 }
 
+.roads[kind=major_road][render=inline][zoom<=10]
+{
+	line-color: #aaa;
+}
+
 .roads[kind=major_road][render=outline]
 {
 	line-color: #fff;
@@ -52,6 +57,11 @@ Map {
 .roads[kind=minor_road][render=inline]
 {
 	line-color: #999;
+}
+
+.roads[kind=minor_road][render=inline][zoom<=13]
+{
+	line-color: #aaa;
 }
 
 .roads[kind=minor_road][render=outline]
@@ -86,7 +96,7 @@ Map {
 
 #z10-roads[zoom=10][kind=major_road][render=inline]
 { 	
-	line-width: 2; 
+	line-width: 2;
 }
 
 #z10-roads[zoom=10][kind=minor_road][render=inline]
@@ -145,7 +155,6 @@ Map {
 
 #z12-roads[zoom=12][kind=minor_road][render=inline]
 { 	
-	line-width: 1.5;
 	line-width: 1;
 }
 
