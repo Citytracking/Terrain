@@ -19,7 +19,7 @@
             <Parameter name="type">postgis</Parameter>
             <Parameter name="host">&osm_host;</Parameter>
             <Parameter name="dbname">&osm_name;</Parameter>
-            <Parameter name="user">&osm_user;</Parameter>      
+            <Parameter name="user">&osm_user;</Parameter>
             <Parameter name="password"></Parameter>
             <Parameter name="table">coastline</Parameter>
             <Parameter name="estimate_extent">false</Parameter>
@@ -32,7 +32,7 @@
             <Parameter name="type">postgis</Parameter>
             <Parameter name="host">&osm_host;</Parameter>
             <Parameter name="dbname">&osm_name;</Parameter>
-            <Parameter name="user">&osm_user;</Parameter>      
+            <Parameter name="user">&osm_user;</Parameter>
             <Parameter name="password"></Parameter>
             <Parameter name="table">coastline</Parameter>
             <Parameter name="estimate_extent">false</Parameter>
@@ -68,7 +68,7 @@
             <Parameter name="type">postgis</Parameter>
             <Parameter name="host">&osm_host;</Parameter>
             <Parameter name="dbname">&osm_name;</Parameter>
-            <Parameter name="user">&osm_user;</Parameter>      
+            <Parameter name="user">&osm_user;</Parameter>
             <Parameter name="password"></Parameter>
             <Parameter name="table">coastline</Parameter>
             <Parameter name="estimate_extent">false</Parameter>
@@ -197,6 +197,20 @@
             <Parameter name="estimate_extent">false</Parameter>
             <Parameter name="extent">&epsg900913_extent;</Parameter>
             <Parameter name="table">planet_osm_line_z15plus</Parameter>
+        </Datasource>
+    </Layer>
+
+    <Layer id="road-labels" class="labels" srs="&epsg900913;">
+        <Datasource>
+            <Parameter name="type">postgis</Parameter>
+            <Parameter name="host">&osm_host;</Parameter>
+            <Parameter name="port">&osm_port;</Parameter>
+            <Parameter name="user">&osm_user;</Parameter>
+            <Parameter name="password">&osm_pass;</Parameter>
+            <Parameter name="dbname">&osm_name;</Parameter>
+            <Parameter name="estimate_extent">false</Parameter>
+            <Parameter name="extent">&epsg900913_extent;</Parameter>
+            <Parameter name="table">planet_osm_line_labels</Parameter>
         </Datasource>
     </Layer>
 

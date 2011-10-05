@@ -72,6 +72,7 @@
 
 BEGIN;
 
+DROP VIEW IF EXISTS planet_osm_line_labels;
 DROP VIEW IF EXISTS planet_osm_line_z15plus_big;
 DROP VIEW IF EXISTS planet_osm_line_z15plus_small;
 DROP VIEW IF EXISTS planet_osm_line_z15plus;
@@ -83,7 +84,8 @@ DROP VIEW IF EXISTS planet_osm_line_z10;
 
 DELETE FROM geometry_columns
 WHERE f_table_name
-   IN ('planet_osm_line_z15plus_big', 'planet_osm_line_z15plus_small',
+   IN ('planet_osm_line_labels',
+       'planet_osm_line_z15plus_big', 'planet_osm_line_z15plus_small',
        'planet_osm_line_z15plus', 'planet_osm_line_z14', 'planet_osm_line_z13',
        'planet_osm_line_z12', 'planet_osm_line_z11', 'planet_osm_line_z10');
 
@@ -459,6 +461,60 @@ CREATE VIEW planet_osm_line_z15plus_small AS
 
 
 
+CREATE VIEW planet_osm_line_labels AS
+  SELECT way,
+         name,
+         highway,
+         railway,
+
+         (CASE WHEN highway LIKE '%_link' THEN 'yes'
+               ELSE 'no' END) AS is_link,
+         (CASE WHEN tunnel IN ('yes', 'true') THEN 'yes'
+               ELSE 'no' END) AS is_tunnel,
+         (CASE WHEN bridge IN ('yes', 'true') THEN 'yes'
+               ELSE 'no' END) AS is_bridge,
+
+         (CASE WHEN name ~* E'\\mavenue$' THEN regexp_replace(name, E'\\m(ave)nue$', E'\\1', 'i')
+               WHEN name ~* E'\\mboulevard$' THEN regexp_replace(name, E'\\m(b)oulevard$', E'\\1lvd', 'i')
+               WHEN name ~* E'\\mcourt$' THEN regexp_replace(name, E'\\m(c)ourt$', E'\\1t', 'i')
+               WHEN name ~* E'\\mdrive$' THEN regexp_replace(name, E'\\m(dr)ive$', E'\\1', 'i')
+               WHEN name ~* E'\\mlane$' THEN regexp_replace(name, E'\\m(l)ane$', E'\\1n', 'i')
+               WHEN name ~* E'\\mroad$' THEN regexp_replace(name, E'\\m(r)oad$', E'\\1d', 'i')
+               WHEN name ~* E'\\mstreet$' THEN regexp_replace(name, E'\\m(st)reet$', E'\\1', 'i')
+               WHEN name ~* E'\\mtrail$' THEN regexp_replace(name, E'\\m(tr)ail$', E'\\1', 'i')
+               WHEN name ~* E'\\mway$' THEN regexp_replace(name, E'\\m(w)ay$', E'\\1y', 'i')
+               ELSE name END) AS name_abbr,
+
+         (CASE WHEN highway IN ('motorway') THEN 0
+               WHEN railway IN ('rail', 'tram', 'light_rail', 'narrow_guage', 'monorail') THEN .5
+               WHEN highway IN ('trunk') THEN 1
+               WHEN highway IN ('primary') THEN 2
+               WHEN highway IN ('secondary') THEN 3
+               WHEN highway IN ('tertiary') THEN 4
+               WHEN highway LIKE '%_link' THEN 5
+               WHEN highway IN ('residential', 'unclassified', 'road') THEN 6
+               WHEN highway IN ('unclassified', 'service', 'minor') THEN 7
+               ELSE 99 END) AS priority,
+
+         (CASE WHEN highway IN ('motorway', 'trunk', 'primary', 'secondary') THEN 12
+               WHEN highway IN ('tertiary') THEN 13
+               WHEN highway IN ('residential', 'unclassified', 'road') THEN 14
+               WHEN highway IN ('unclassified', 'service', 'minor') THEN 15
+               WHEN highway IN ('footpath', 'track', 'footway', 'steps', 'pedestrian', 'path', 'cycleway') THEN 15
+               WHEN highway LIKE '%_link' THEN 15
+               ELSE 99 END) AS min_zoom
+
+  FROM planet_osm_line AS roads
+
+  WHERE highway IN ('motorway', 'motorway_link')
+     OR highway IN ('trunk', 'trunk_link', 'primary', 'primary_link', 'secondary', 'secondary_link', 'tertiary', 'tertiary_link')
+     OR highway IN ('residential', 'unclassified', 'road', 'unclassified', 'service', 'minor')
+     OR highway IN ('footpath', 'track', 'footway', 'steps', 'pedestrian', 'path', 'cycleway')
+
+  ORDER BY priority ASC, ST_Length(way) DESC;
+
+
+
 INSERT INTO geometry_columns
 (f_table_catalog, f_table_schema, f_table_name, f_geometry_column, coord_dimension, srid, "type")
 VALUES
@@ -469,7 +525,8 @@ VALUES
     ('', 'public', 'planet_osm_line_z14', 'way', 2, 900913, 'LINESTRING'),
     ('', 'public', 'planet_osm_line_z15plus', 'way', 2, 900913, 'LINESTRING'),
     ('', 'public', 'planet_osm_line_z15plus_big', 'way', 2, 900913, 'LINESTRING'),
-    ('', 'public', 'planet_osm_line_z15plus_small', 'way', 2, 900913, 'LINESTRING');
+    ('', 'public', 'planet_osm_line_z15plus_small', 'way', 2, 900913, 'LINESTRING'),
+    ('', 'public', 'planet_osm_line_labels', 'way', 2, 900913, 'LINESTRING');
 
 
 
