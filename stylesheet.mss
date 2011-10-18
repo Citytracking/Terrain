@@ -592,12 +592,11 @@ Map {
 	
 /*//////// Labels! */
 
-#road-labels[highway!=motorway][min_zoom=10][zoom>=10] name_abbr,
-#road-labels[highway!=motorway][min_zoom=11][zoom>=11] name_abbr,
-#road-labels[highway!=motorway][min_zoom=12][zoom>=12] name_abbr,
-#road-labels[highway!=motorway][min_zoom=13][zoom>=13] name_abbr,
-#road-labels[highway!=motorway][min_zoom=14][zoom>=14] name_abbr,
-#road-labels[highway!=motorway][min_zoom=15][zoom>=15] name_abbr
+#road-labels[highway=trunk][zoom>=12] name_abbr,
+#road-labels[highway=primary][zoom>=12] name_abbr,
+#road-labels[highway=secondary][zoom>=12] name_abbr,
+#road-labels[highway=tertiary][zoom>=13] name_abbr,
+#road-labels[zoom>=15] name_abbr
 {
     text-placement: line;
     text-max-char-angle-delta: 20;
