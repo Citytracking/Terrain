@@ -592,14 +592,21 @@ Map {
 	
 /*//////// Labels! */
 
+/*
 #road-labels[highway=trunk][zoom>=12] name_abbr,
 #road-labels[highway=primary][zoom>=12] name_abbr,
 #road-labels[highway=secondary][zoom>=12] name_abbr,
 #road-labels[highway=tertiary][zoom>=13] name_abbr,
 #road-labels[zoom>=15] name_abbr
+*/
+#road-labels-skeletron[show_zoom=12][zoom=12] name_abbr,
+#road-labels-skeletron[show_zoom=13][zoom=13] name_abbr,
+#road-labels-skeletron[show_zoom=14][zoom=14] name_abbr,
+#road-labels-skeletron[show_zoom=15][zoom>=15] name_abbr,
+#road-labels-full[zoom>=15] name_abbr
 {
     text-placement: line;
-    text-max-char-angle-delta: 20;
+    text-max-char-angle-delta: 30;
 
     text-face-name: 'DejaVu Sans Book';
     text-fill: #444;
@@ -607,4 +614,11 @@ Map {
     
     text-halo-fill: #f7f7e6;
     text-halo-radius: 2;
+}
+
+#routes-z14[network="US:I"] ref
+{
+    shield-file: url('shields/US-I-24.png');
+    shield-face-name: 'DejaVu Sans Book';
+    shield-fill: #fff;
 }
