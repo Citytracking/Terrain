@@ -616,9 +616,44 @@ Map {
     text-halo-radius: 2;
 }
 
-#routes-z14[network="US:I"] ref
+#skeletron-routes ref
 {
-    shield-file: url('shields/US-I-24.png');
+    shield-spacing: 500;
     shield-face-name: 'DejaVu Sans Book';
     shield-fill: #fff;
+    shield-size: 1;
+}
+
+#skeletron-routes[show_zoom=10][zoom=10][network="US:I"] ref,
+#skeletron-routes[show_zoom=11][zoom=11][network="US:I"] ref,
+#skeletron-routes[show_zoom=12][zoom=12][network="US:I"] ref,
+#skeletron-routes[show_zoom=13][zoom=13][network="US:I"] ref,
+#skeletron-routes[show_zoom=14][zoom>=14][network="US:I"] ref
+{
+    shield-file: url('shields/US-I-24.png');
+    shield-size: 9;
+}
+
+#skeletron-routes[show_zoom=10][zoom=10][network="US:US"] ref,
+#skeletron-routes[show_zoom=11][zoom=11][network="US:US"] ref,
+#skeletron-routes[show_zoom=12][zoom=12][network="US:US"] ref,
+#skeletron-routes[show_zoom=13][zoom=13][network="US:US"] ref,
+#skeletron-routes[show_zoom=14][zoom>=14][network="US:US"] ref
+{
+    shield-file: url('shields/US-US-24.png');
+    shield-size: 9;
+    shield-fill: #000;
+}
+
+#skeletron-routes[show_zoom=11][zoom=11][network="US:CA"] ref,
+#skeletron-routes[show_zoom=12][zoom=12][network="US:CA"] ref
+{
+    shield-file: url('shields/US-CA-12.png');
+}
+
+#skeletron-routes[show_zoom=13][zoom=13][network="US:CA"] ref,
+#skeletron-routes[show_zoom=14][zoom>=14][network="US:CA"] ref
+{
+    shield-file: url('shields/US-CA-24.png');
+    shield-size: 9;
 }
