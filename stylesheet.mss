@@ -605,6 +605,7 @@ Map {
 #road-labels-skeletron[show_zoom=15][zoom>=15] name_abbr,
 #road-labels-full[zoom>=15] name_abbr
 {
+    text-spacing: 256;
     text-placement: line;
     text-max-char-angle-delta: 30;
 
@@ -618,7 +619,7 @@ Map {
 
 #skeletron-routes ref
 {
-    shield-spacing: 500;
+    shield-spacing: 512;
     shield-face-name: 'DejaVu Sans Book';
     shield-fill: #fff;
     shield-size: 1;
@@ -628,7 +629,8 @@ Map {
 #skeletron-routes[show_zoom=11][zoom=11][network="US:I"] ref,
 #skeletron-routes[show_zoom=12][zoom=12][network="US:I"] ref,
 #skeletron-routes[show_zoom=13][zoom=13][network="US:I"] ref,
-#skeletron-routes[show_zoom=14][zoom>=14][network="US:I"] ref
+#skeletron-routes[show_zoom=14][zoom=14][network="US:I"] ref,
+#skeletron-routes[show_zoom=15][zoom>=15][network="US:I"] ref
 {
     shield-file: url('shields/US-I-24.png');
     shield-size: 9;
@@ -638,21 +640,25 @@ Map {
 #skeletron-routes[show_zoom=11][zoom=11][network="US:US"] ref,
 #skeletron-routes[show_zoom=12][zoom=12][network="US:US"] ref,
 #skeletron-routes[show_zoom=13][zoom=13][network="US:US"] ref,
-#skeletron-routes[show_zoom=14][zoom>=14][network="US:US"] ref
+#skeletron-routes[show_zoom=14][zoom=14][network="US:US"] ref,
+#skeletron-routes[show_zoom=15][zoom>=15][network="US:US"] ref
 {
     shield-file: url('shields/US-US-24.png');
     shield-size: 9;
     shield-fill: #000;
 }
 
-#skeletron-routes[show_zoom=11][zoom=11][network="US:CA"] ref,
+#skeletron-routes[show_zoom=10][zoom=10][network="US:CA"][highway=motorway] ref,
 #skeletron-routes[show_zoom=12][zoom=12][network="US:CA"] ref
 {
     shield-file: url('shields/US-CA-12.png');
 }
 
+#skeletron-routes[show_zoom=11][zoom=11][network="US:CA"][highway=motorway] ref,
+#skeletron-routes[show_zoom=12][zoom=12][network="US:CA"][highway=motorway] ref,
 #skeletron-routes[show_zoom=13][zoom=13][network="US:CA"] ref,
-#skeletron-routes[show_zoom=14][zoom>=14][network="US:CA"] ref
+#skeletron-routes[show_zoom=14][zoom=14][network="US:CA"] ref,
+#skeletron-routes[show_zoom=15][zoom>=15][network="US:CA"] ref
 {
     shield-file: url('shields/US-CA-24.png');
     shield-size: 9;
