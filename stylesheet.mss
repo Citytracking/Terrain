@@ -2,6 +2,13 @@
 Map { 
 	map-bgcolor: transparent; } 
 
+#buildings[zoom>=12]
+{
+    polygon-fill: #bfcfcd;
+    line-color: #b0c0be;
+    line-width: 1;
+}
+
 /*//////// Base line styles */
 
 .roads {
