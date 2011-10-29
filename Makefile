@@ -3,7 +3,7 @@ NYC_LATLON = 40.756749 -73.998284
 LON_LATLON = 51.507553 -0.008271
 MOS_LATLON = 55.882322 37.724175
 
-all: index.html
+all: index.html background.xml
 
 index.html: \
 	renders/sanfrancisco-10.png renders/sanfrancisco-11.png renders/sanfrancisco-12.png \
@@ -54,6 +54,9 @@ renders/sanfrancisco-15-bg.jpg:
 
 style.xml: style.mml stylesheet.mss
 	cascadenik-compile.py style.mml style.xml
+
+background.xml: background.mml background.mss
+	cascadenik-compile.py background.mml background.xml
 
 clean:
 	rm -f renders/sanfrancisco-*.png
