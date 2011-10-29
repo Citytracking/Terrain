@@ -476,8 +476,12 @@ CREATE VIEW planet_osm_line_labels AS
 
          (CASE WHEN name ~* E'\\mavenue$' THEN regexp_replace(name, E'\\m(ave)nue$', E'\\1', 'i')
                WHEN name ~* E'\\mboulevard$' THEN regexp_replace(name, E'\\m(b)oulevard$', E'\\1lvd', 'i')
+               WHEN name ~* E'\\mexpressway$' THEN regexp_replace(name, E'\\m(E)xpressway$', E'\\1xpwy', 'i')
+               WHEN name ~* E'\\mhighway$' THEN regexp_replace(name, E'\\m(h)ighway$', E'\\1wy', 'i')
+               WHEN name ~* E'\\mparkway$' THEN regexp_replace(name, E'\\m(p)arkway$', E'\\1kwy', 'i')
                WHEN name ~* E'\\mcourt$' THEN regexp_replace(name, E'\\m(c)ourt$', E'\\1t', 'i')
                WHEN name ~* E'\\mdrive$' THEN regexp_replace(name, E'\\m(dr)ive$', E'\\1', 'i')
+               WHEN name ~* E'\\mplace$' THEN regexp_replace(name, E'\\m(pl)ace$', E'\\1', 'i')
                WHEN name ~* E'\\mlane$' THEN regexp_replace(name, E'\\m(l)ane$', E'\\1n', 'i')
                WHEN name ~* E'\\mroad$' THEN regexp_replace(name, E'\\m(r)oad$', E'\\1d', 'i')
                WHEN name ~* E'\\mstreet$' THEN regexp_replace(name, E'\\m(st)reet$', E'\\1', 'i')

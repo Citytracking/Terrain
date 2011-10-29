@@ -607,22 +607,32 @@ Map {
 {
     text-spacing: 256;
     text-placement: line;
-    text-max-char-angle-delta: 30;
+    text-max-char-angle-delta: 20;
 
-    text-face-name: 'DejaVu Sans Book';
+    text-face-name: 'PT Sans Narrow Regular';
     text-fill: #444;
-    text-size: 12;
+    text-size: 18;
     
     text-halo-fill: #f7f7e6;
     text-halo-radius: 2;
 }
 
+#road-labels-full[zoom>=15] name_abbr
+{
+    text-size: 15;
+}
+
 #skeletron-routes ref
 {
     shield-spacing: 512;
-    shield-face-name: 'DejaVu Sans Book';
+    shield-face-name: 'PT Sans Narrow Bold';
     shield-fill: #fff;
-    shield-size: 1;
+    shield-size: 11;
+}
+
+#skeletron-routes[ref_len<=2] ref
+{
+    shield-size: 13;
 }
 
 #skeletron-routes[show_zoom=10][zoom=10][network="US:I"] ref,
@@ -632,8 +642,7 @@ Map {
 #skeletron-routes[show_zoom=14][zoom=14][network="US:I"] ref,
 #skeletron-routes[show_zoom=15][zoom>=15][network="US:I"] ref
 {
-    shield-file: url('shields/US-I-24.png');
-    shield-size: 9;
+    shield-file: url('shields/US-I-25.png');
 }
 
 #skeletron-routes[show_zoom=10][zoom=10][network="US:US"] ref,
@@ -643,15 +652,15 @@ Map {
 #skeletron-routes[show_zoom=14][zoom=14][network="US:US"] ref,
 #skeletron-routes[show_zoom=15][zoom>=15][network="US:US"] ref
 {
-    shield-file: url('shields/US-US-24.png');
-    shield-size: 9;
+    shield-file: url('shields/US-US-25.png');
     shield-fill: #000;
 }
 
 #skeletron-routes[show_zoom=10][zoom=10][network="US:CA"][highway=motorway] ref,
-#skeletron-routes[show_zoom=12][zoom=12][network="US:CA"] ref
+#skeletron-routes[show_zoom=12][zoom=12][network="US:CA"][highway!=motorway] ref
 {
-    shield-file: url('shields/US-CA-12.png');
+    shield-file: url('shields/US-CA-13.png');
+    shield-size: 1;
 }
 
 #skeletron-routes[show_zoom=11][zoom=11][network="US:CA"][highway=motorway] ref,
@@ -660,6 +669,5 @@ Map {
 #skeletron-routes[show_zoom=14][zoom=14][network="US:CA"] ref,
 #skeletron-routes[show_zoom=15][zoom>=15][network="US:CA"] ref
 {
-    shield-file: url('shields/US-CA-24.png');
-    shield-size: 9;
+    shield-file: url('shields/US-CA-25.png');
 }

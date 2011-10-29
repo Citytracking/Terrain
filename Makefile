@@ -14,22 +14,22 @@ index.html: \
 
 
 renders/sanfrancisco-10.png: style.xml
-	python mapnik-render.py -f ../fonts -s style.xml -l $(SFO_LATLON) -z 10 -d 1024 512 -o $@
+	python mapnik-render.py -f fonts -s style.xml -l $(SFO_LATLON) -z 10 -d 1024 512 -o $@
 
 renders/sanfrancisco-11.png: style.xml
-	python mapnik-render.py -f ../fonts -s style.xml -l $(SFO_LATLON) -z 11 -d 1024 512 -o $@
+	python mapnik-render.py -f fonts -s style.xml -l $(SFO_LATLON) -z 11 -d 1024 512 -o $@
 
 renders/sanfrancisco-12.png: style.xml
-	python mapnik-render.py -f ../fonts -s style.xml -l $(SFO_LATLON) -z 12 -d 1024 512 -o $@
+	python mapnik-render.py -f fonts -s style.xml -l $(SFO_LATLON) -z 12 -d 1024 512 -o $@
 
 renders/sanfrancisco-13.png: style.xml
-	python mapnik-render.py -f ../fonts -s style.xml -l $(SFO_LATLON) -z 13 -d 1024 512 -o $@
+	python mapnik-render.py -f fonts -s style.xml -l $(SFO_LATLON) -z 13 -d 1024 512 -o $@
 
 renders/sanfrancisco-14.png: style.xml
-	python mapnik-render.py -f ../fonts -s style.xml -l $(SFO_LATLON) -z 14 -d 1024 512 -o $@
+	python mapnik-render.py -f fonts -s style.xml -l $(SFO_LATLON) -z 14 -d 1024 512 -o $@
 
 renders/sanfrancisco-15.png: style.xml
-	python mapnik-render.py -f ../fonts -s style.xml -l $(SFO_LATLON) -z 15 -d 1024 512 -o $@
+	python mapnik-render.py -f fonts -s style.xml -l $(SFO_LATLON) -z 15 -d 1024 512 -o $@
 
 
 renders/sanfrancisco-10-bg.jpg:
