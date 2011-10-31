@@ -53,6 +53,7 @@
             <Parameter name="table"><![CDATA[
                 (SELECT way,
                         name,
+                        ST_Area(way) / 1000000 AS sq_km,
                         (CASE WHEN leisure IN ('park', 'water_park', 'marina',
                                                'nature_reserve', 'playground',
                                                'garden', 'common') THEN 'park'
