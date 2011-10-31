@@ -2,7 +2,12 @@
 Map { 
 	map-bgcolor: transparent; } 
 
-#buildings[zoom>=12]
+#buildings[area>=16000][zoom=12],
+#buildings[area>=8000][zoom=13],
+#buildings[area>=4000][zoom=14],
+#buildings[area>=2000][zoom=15],
+#buildings[area>=1000][zoom=16],
+#buildings[zoom>=17]
 {
     polygon-fill: #bfcfcd;
     line-color: #b0c0be;
