@@ -39,13 +39,29 @@
     <GCP Id="" Pixel="6732" Line="6073" X="981051" Y="-1586985"/>
 
     <!-- Key Largo -->
-    <GCP Id="" Pixel="7742" Line="6442" X="1991830" Y="-1955909"/>
+    <!-- GCP Id="" Pixel="7742" Line="6442" X="1991830" Y="-1955909"/ -->
 
     <!-- Cape Cod -->
     <GCP Id="" Pixel="8142" Line="4365" X="2398922" Y="117623"/>
 
     <!-- Michigan -->
-    <GCP Id="" Pixel="6777" Line="4354" X="1025521" Y="130254"/>
+    <!-- GCP Id="" Pixel="6777" Line="4354" X="1025521" Y="130254"/ -->
+
+
+    <!-- Hilo -->
+    <GCP Id="" Pixel="297" Line="5489" X="-5471170" Y="-1004930"/>
+
+    <!-- Homestead -->
+    <GCP Id="" Pixel="7738" Line="6433" X="1990010" Y="-1943888"/>
+
+    <!-- Puerto Rico -->
+    <GCP Id="" Pixel="9373" Line="6718" X="3625614" Y="-2230628"/>
+
+    <!-- Houghton -->
+    <GCP Id="" Pixel="6672" Line="4143" X="920471" Y="340680"/>
+
+    <!-- Cape Breton -->
+    <GCP Id="" Pixel="8600" Line="3530" X="2856970" Y="955833"/>
 
   </GCPList>
   <VRTRasterBand dataType="Byte" band="1">
