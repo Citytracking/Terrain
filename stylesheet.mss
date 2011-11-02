@@ -636,7 +636,7 @@ Map {
 
 #skeletron-routes ref
 {
-    shield-spacing: 512;
+    shield-spacing: 384;
     shield-face-name: 'PT Sans Narrow Bold';
     shield-fill: #fff;
     shield-size: 11;
