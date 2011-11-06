@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Map[
+    <!ENTITY epsg4326 "+proj=longlat +datum=WGS84">
+    <!ENTITY epsg900913 "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs +over">
+    <!ENTITY epsg900913_extent "-20037508,-20037508,20037508,20037508">
+
+    <!ENTITY osm_host "localhost">
+    <!ENTITY osm_port "5432">
+    <!ENTITY osm_name "planet_osm">
+    <!ENTITY osm_user "osm">
+    <!ENTITY osm_pass "">
+]>
+<Map srs="&epsg900913;">
+    
+    <Stylesheet src="cities.mss"/>
+
+    <Stylesheet>
+    
+        Map { map-bgcolor: #fff; }
+        
+        .labels name
+        {
+            text-fill: #333;
+            text-halo-radius: 3;
+            text-halo-fill: #333;
+        }
+    
+    </Stylesheet>
+
+    <Layer class="labels" id="labels-z4" srs="&epsg900913;">
+        <Datasource>
+            <Parameter name="type">shape</Parameter>
+            <Parameter name="file">cities/NA-labels-z4</Parameter>
+        </Datasource>
+    </Layer>
+
+    <Layer id="places-z4" srs="&epsg900913;">
+        <Datasource>
+            <Parameter name="type">shape</Parameter>
+            <Parameter name="file">cities/NA-places-z4</Parameter>
+        </Datasource>
+    </Layer>
+
+    <Layer class="labels" id="labels-z5" srs="&epsg900913;">
+        <Datasource>
+            <Parameter name="type">shape</Parameter>
+            <Parameter name="file">cities/NA-labels-z5</Parameter>
+        </Datasource>
+    </Layer>
+
+    <Layer id="places-z5" srs="&epsg900913;">
+        <Datasource>
+            <Parameter name="type">shape</Parameter>
+            <Parameter name="file">cities/NA-places-z5</Parameter>
+        </Datasource>
+    </Layer>
+
+
+    <Layer class="labels" id="labels-z6" srs="&epsg900913;">
+        <Datasource>
+            <Parameter name="type">shape</Parameter>
+            <Parameter name="file">cities/NA-labels-z6</Parameter>
+        </Datasource>
+    </Layer>
+
+    <Layer id="places-z6" srs="&epsg900913;">
+        <Datasource>
+            <Parameter name="type">shape</Parameter>
+            <Parameter name="file">cities/NA-places-z6</Parameter>
+        </Datasource>
+    </Layer>
+
+
+    <Layer class="labels" id="labels-z7" srs="&epsg900913;">
+        <Datasource>
+            <Parameter name="type">shape</Parameter>
+            <Parameter name="file">cities/NA-labels-z7</Parameter>
+        </Datasource>
+    </Layer>
+
+    <Layer id="places-z7" srs="&epsg900913;">
+        <Datasource>
+            <Parameter name="type">shape</Parameter>
+            <Parameter name="file">cities/NA-places-z7</Parameter>
+        </Datasource>
+    </Layer>
+
+
+    <Layer class="labels" id="labels-z8" srs="&epsg900913;">
+        <Datasource>
+            <Parameter name="type">shape</Parameter>
+            <Parameter name="file">cities/NA-labels-z8</Parameter>
+        </Datasource>
+    </Layer>
+
+    <Layer id="places-z8" srs="&epsg900913;">
+        <Datasource>
+            <Parameter name="type">shape</Parameter>
+            <Parameter name="file">cities/NA-places-z8</Parameter>
+        </Datasource>
+    </Layer>
+
+
+    <Layer class="labels" id="labels-z9" srs="&epsg900913;">
+        <Datasource>
+            <Parameter name="type">shape</Parameter>
+            <Parameter name="file">cities/NA-labels-z9</Parameter>
+        </Datasource>
+    </Layer>
+
+    <Layer id="places-z9" srs="&epsg900913;">
+        <Datasource>
+            <Parameter name="type">shape</Parameter>
+            <Parameter name="file">cities/NA-places-z9</Parameter>
+        </Datasource>
+    </Layer>
+
+
+</Map>
