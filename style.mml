@@ -200,6 +200,20 @@
         </Datasource>
     </Layer>
 
+    <Layer id="airports" srs="&epsg900913;">
+        <Datasource>
+            <Parameter name="type">postgis</Parameter>
+            <Parameter name="host">&osm_host;</Parameter>
+            <Parameter name="port">&osm_port;</Parameter>
+            <Parameter name="user">&osm_user;</Parameter>
+            <Parameter name="password">&osm_pass;</Parameter>
+            <Parameter name="dbname">&osm_name;</Parameter>
+            <Parameter name="estimate_extent">false</Parameter>
+            <Parameter name="extent">&epsg900913_extent;</Parameter>
+            <Parameter name="table">airports</Parameter>
+        </Datasource>
+    </Layer>    
+
     <!--
     <Layer id="road-labels" class="labels" srs="&epsg900913;">
         <Datasource>
@@ -242,7 +256,7 @@
             <Parameter name="estimate_extent">false</Parameter>
             <Parameter name="extent">&epsg900913_extent;</Parameter>
             <Parameter name="table"><![CDATA[
-                (SELECT name, the_geom, show_zoom,
+                (SELECT name, the_geom, zoom_level AS show_zoom,
                         (CASE WHEN name ~* E'\\mavenue$' THEN regexp_replace(name, E'\\m(ave)nue$', E'\\1', 'i')
                               WHEN name ~* E'\\mboulevard$' THEN regexp_replace(name, E'\\m(b)oulevard$', E'\\1lvd', 'i')
                               WHEN name ~* E'\\mexpressway$' THEN regexp_replace(name, E'\\m(E)xpressway$', E'\\1xpwy', 'i')
@@ -257,7 +271,7 @@
                               WHEN name ~* E'\\mtrail$' THEN regexp_replace(name, E'\\m(tr)ail$', E'\\1', 'i')
                               WHEN name ~* E'\\mway$' THEN regexp_replace(name, E'\\m(w)ay$', E'\\1y', 'i')
                               ELSE name END) AS name_abbr
-                FROM bayarea_skeletron_roads) AS labels]]></Parameter>
+                FROM skeletron_roads) AS labels]]></Parameter>
         </Datasource>
     </Layer>
     <Layer id="road-labels-full" class="labels" srs="&epsg900913;">

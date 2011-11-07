@@ -605,6 +605,67 @@ Map {
 /*//////// Labels! */
 
 /*
+#airports[zoom=2][natlscale>148],
+#airports[zoom=3][natlscale>74],
+#airports[zoom=4][natlscale>37],
+#airports[zoom=5][natlscale>18],
+#airports[zoom=6][natlscale>9.2],
+*/
+#airports[zoom=7][natlscale>4.6],
+#airports[zoom=8][natlscale>2.3],
+#airports[zoom=9][natlscale>1.2],
+#airports[zoom=10][natlscale>.57],
+#airports[zoom=11][natlscale>.29],
+#airports[zoom=12][natlscale>.14],
+#airports[zoom=13][natlscale>.07]
+{
+    point-file: url('icons/airplane-19.png');
+}
+
+#airports[zoom=14][natlscale>.04],
+#airports[zoom=15][natlscale>.02],
+#airports[zoom>=16][natlscale>.01]
+{
+    point-file: url('icons/airplane-35.png');
+}
+
+/*
+#airports[zoom=2][natlscale>148] label_sm,
+#airports[zoom=3][natlscale>74] label_sm,
+#airports[zoom=4][natlscale>37] label_sm,
+#airports[zoom=5][natlscale>18] label_sm,
+#airports[zoom=6][natlscale>9.2] label_sm,
+#airports[zoom=7][natlscale>4.6] label_sm,
+#airports[zoom=8][natlscale>2.3] label_sm,
+#airports[zoom=9][natlscale>1.2] label_sm,
+*/
+#airports[zoom=10][natlscale>.57] label_sm,
+#airports[zoom=11][natlscale>.29] label_sm,
+#airports[zoom=12][natlscale>.14] label_sm,
+#airports[zoom=13][natlscale>.07] label_lng,
+#airports[zoom=14][natlscale>.04] label_lng,
+#airports[zoom=15][natlscale>.02] label_lng,
+#airports[zoom>=16][natlscale>.01] label_lng
+{
+    text-face-name: 'PT Sans Narrow Regular';
+    text-fill: #444;
+    text-size: 18;
+    
+    text-halo-fill: #f7f7e6;
+    text-halo-radius: 2;
+    
+    text-wrap-width: 128;
+    text-dy: 12;
+}
+
+#airports[zoom=14][natlscale>.04] label_lng,
+#airports[zoom=15][natlscale>.02] label_lng,
+#airports[zoom>=16][natlscale>.01] label_lng
+{
+    text-dy: 20;
+}
+
+/*
 #road-labels[highway=trunk][zoom>=12] name_abbr,
 #road-labels[highway=primary][zoom>=12] name_abbr,
 #road-labels[highway=secondary][zoom>=12] name_abbr,
@@ -614,7 +675,8 @@ Map {
 #road-labels-skeletron[show_zoom=12][zoom=12] name_abbr,
 #road-labels-skeletron[show_zoom=13][zoom=13] name_abbr,
 #road-labels-skeletron[show_zoom=14][zoom=14] name_abbr,
-#road-labels-skeletron[show_zoom=15][zoom>=15] name_abbr,
+#road-labels-skeletron[show_zoom=15][zoom=15] name_abbr,
+#road-labels-skeletron[show_zoom=16][zoom>=16] name_abbr,
 #road-labels-full[zoom>=15] name_abbr
 {
     text-spacing: 256;
