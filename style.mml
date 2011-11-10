@@ -240,9 +240,9 @@
             <Parameter name="estimate_extent">false</Parameter>
             <Parameter name="extent">&epsg900913_extent;</Parameter>
             <Parameter name="table"><![CDATA[
-                (SELECT network, ref, highway, the_geom, show_zoom,
+                (SELECT network, ref, highway, the_geom, zoom_level AS show_zoom,
                         LENGTH(ref) AS ref_len
-                FROM california_routes) AS shields]]></Parameter>
+                FROM skeletron_routes) AS shields]]></Parameter>
         </Datasource>
     </Layer>
     <Layer id="road-labels-skeletron" class="labels" srs="&epsg900913;">

@@ -714,7 +714,8 @@ Map {
 #skeletron-routes[show_zoom=12][zoom=12][network="US:I"] ref,
 #skeletron-routes[show_zoom=13][zoom=13][network="US:I"] ref,
 #skeletron-routes[show_zoom=14][zoom=14][network="US:I"] ref,
-#skeletron-routes[show_zoom=15][zoom>=15][network="US:I"] ref
+#skeletron-routes[show_zoom=15][zoom=15][network="US:I"] ref,
+#skeletron-routes[show_zoom=16][zoom>=16][network="US:I"] ref
 {
     shield-file: url('shields/US-I-25.png');
 }
@@ -724,7 +725,8 @@ Map {
 #skeletron-routes[show_zoom=12][zoom=12][network="US:US"] ref,
 #skeletron-routes[show_zoom=13][zoom=13][network="US:US"] ref,
 #skeletron-routes[show_zoom=14][zoom=14][network="US:US"] ref,
-#skeletron-routes[show_zoom=15][zoom>=15][network="US:US"] ref
+#skeletron-routes[show_zoom=15][zoom=15][network="US:US"] ref,
+#skeletron-routes[show_zoom=16][zoom>=16][network="US:US"] ref
 {
     shield-file: url('shields/US-US-25.png');
     shield-fill: #000;
@@ -741,7 +743,8 @@ Map {
 #skeletron-routes[show_zoom=12][zoom=12][network="US:CA"][highway=motorway] ref,
 #skeletron-routes[show_zoom=13][zoom=13][network="US:CA"] ref,
 #skeletron-routes[show_zoom=14][zoom=14][network="US:CA"] ref,
-#skeletron-routes[show_zoom=15][zoom>=15][network="US:CA"] ref
+#skeletron-routes[show_zoom=15][zoom=15][network="US:CA"] ref,
+#skeletron-routes[show_zoom=16][zoom>=16][network="US:CA"] ref
 {
     shield-file: url('shields/US-CA-25.png');
 }
