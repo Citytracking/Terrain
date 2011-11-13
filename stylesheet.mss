@@ -700,7 +700,7 @@ Map {
 {
     shield-spacing: 384;
     shield-face-name: 'PT Sans Narrow Bold';
-    shield-fill: #fff;
+    shield-fill: #000;
     shield-size: 11;
 }
 
@@ -718,6 +718,7 @@ Map {
 #skeletron-routes[show_zoom=16][zoom>=16][network="US:I"] ref
 {
     shield-file: url('shields/US-I-25.png');
+    shield-fill: #fff;
 }
 
 #skeletron-routes[show_zoom=10][zoom=10][network="US:US"] ref,
@@ -729,13 +730,13 @@ Map {
 #skeletron-routes[show_zoom=16][zoom>=16][network="US:US"] ref
 {
     shield-file: url('shields/US-US-25.png');
-    shield-fill: #000;
 }
 
 #skeletron-routes[show_zoom=10][zoom=10][network="US:CA"][highway=motorway] ref,
 #skeletron-routes[show_zoom=12][zoom=12][network="US:CA"][highway!=motorway] ref
 {
     shield-file: url('shields/US-CA-13.png');
+    shield-fill: #368c7c;
     shield-size: 1;
 }
 
@@ -747,4 +748,24 @@ Map {
 #skeletron-routes[show_zoom=16][zoom>=16][network="US:CA"] ref
 {
     shield-file: url('shields/US-CA-25.png');
+    shield-fill: #fff;
+}
+
+#skeletron-routes[show_zoom=10][zoom=10][network="US:CO"][highway=motorway] ref,
+#skeletron-routes[show_zoom=12][zoom=12][network="US:CO"][highway!=motorway] ref
+{
+    shield-file: url('shields/US-CO-12.png');
+    shield-fill: #fff;
+    shield-size: 1;
+}
+
+#skeletron-routes[show_zoom=11][zoom=11][network="US:CO"][highway=motorway] ref,
+#skeletron-routes[show_zoom=12][zoom=12][network="US:CO"][highway=motorway] ref,
+#skeletron-routes[show_zoom=13][zoom=13][network="US:CO"] ref,
+#skeletron-routes[show_zoom=14][zoom=14][network="US:CO"] ref,
+#skeletron-routes[show_zoom=15][zoom=15][network="US:CO"] ref,
+#skeletron-routes[show_zoom=16][zoom>=16][network="US:CO"] ref
+{
+    shield-file: url('shields/US-CO-23.png');
+    shield-text-dy: 3;
 }
