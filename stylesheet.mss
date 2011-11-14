@@ -769,3 +769,42 @@ Map {
     shield-file: url('shields/US-CO-23.png');
     shield-text-dy: 3;
 }
+
+#skeletron-routes[show_zoom=10][zoom=10][network="US:FL"][highway=motorway] ref,
+#skeletron-routes[show_zoom=12][zoom=12][network="US:FL"][highway!=motorway] ref
+{
+    shield-file: url('shields/US-FL-12.png');
+    shield-fill: #fff;
+    shield-size: 1;
+}
+
+#skeletron-routes[show_zoom=11][zoom=11][network="US:FL"][highway=motorway] ref,
+#skeletron-routes[show_zoom=12][zoom=12][network="US:FL"][highway=motorway] ref,
+#skeletron-routes[show_zoom=13][zoom=13][network="US:FL"] ref,
+#skeletron-routes[show_zoom=14][zoom=14][network="US:FL"] ref,
+#skeletron-routes[show_zoom=15][zoom=15][network="US:FL"] ref,
+#skeletron-routes[show_zoom=16][zoom>=16][network="US:FL"] ref
+{
+    shield-file: url('shields/US-FL-25.png');
+    shield-text-dx: -2;
+    shield-text-dy: 2;
+}
+
+#skeletron-routes[show_zoom=10][zoom=10][network="US:TX"][highway=motorway] ref,
+#skeletron-routes[show_zoom=12][zoom=12][network="US:TX"][highway!=motorway] ref
+{
+    shield-file: url('shields/US-TX-12.png');
+    shield-fill: #fff;
+    shield-size: 1;
+}
+
+#skeletron-routes[show_zoom=11][zoom=11][network="US:TX"][highway=motorway] ref,
+#skeletron-routes[show_zoom=12][zoom=12][network="US:TX"][highway=motorway] ref,
+#skeletron-routes[show_zoom=13][zoom=13][network="US:TX"] ref,
+#skeletron-routes[show_zoom=14][zoom=14][network="US:TX"] ref,
+#skeletron-routes[show_zoom=15][zoom=15][network="US:TX"] ref,
+#skeletron-routes[show_zoom=16][zoom>=16][network="US:TX"] ref
+{
+    shield-file: url('shields/US-TX-25.png');
+    shield-text-dy: -2;
+}
