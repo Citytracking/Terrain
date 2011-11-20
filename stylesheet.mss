@@ -616,15 +616,24 @@ Map {
 #airports[zoom=9][natlscale>1.2],
 #airports[zoom=10][natlscale>.57],
 #airports[zoom=11][natlscale>.29],
+/*
 #airports[zoom=12][natlscale>.14],
 #airports[zoom=13][natlscale>.07]
+*/
+#airports[zoom=12][natlscale>.29],
+#airports[zoom=13][natlscale>.29]
 {
     point-file: url('icons/airplane-19.png');
 }
 
+/*
 #airports[zoom=14][natlscale>.04],
 #airports[zoom=15][natlscale>.02],
 #airports[zoom>=16][natlscale>.01]
+*/
+#airports[zoom=14][natlscale>.29],
+#airports[zoom=15][natlscale>.29],
+#airports[zoom>=16][natlscale>.29]
 {
     point-file: url('icons/airplane-35.png');
 }
@@ -641,11 +650,18 @@ Map {
 */
 #airports[zoom=10][natlscale>.57] label_sm,
 #airports[zoom=11][natlscale>.29] label_sm,
+/*
 #airports[zoom=12][natlscale>.14] label_sm,
 #airports[zoom=13][natlscale>.07] label_lng,
 #airports[zoom=14][natlscale>.04] label_lng,
 #airports[zoom=15][natlscale>.02] label_lng,
 #airports[zoom>=16][natlscale>.01] label_lng
+*/
+#airports[zoom=12][natlscale>.29] label_sm,
+#airports[zoom=13][natlscale>.29] label_lng,
+#airports[zoom=14][natlscale>.29] label_lng,
+#airports[zoom=15][natlscale>.29] label_lng,
+#airports[zoom>=16][natlscale>.29] label_lng
 {
     text-face-name: 'PT Sans Narrow Regular';
     text-fill: #444;
@@ -747,7 +763,7 @@ Map {
 #skeletron-routes[show_zoom=15][zoom=15][is_state=1] ref,
 #skeletron-routes[show_zoom=16][zoom>=16][is_state=1] ref
 {
-    shield-file: url('shields/state-25.png');
+    shield-file: url('shields/state-27.png');
     shield-fill: #000;
 }
 
