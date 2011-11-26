@@ -369,6 +369,48 @@
                 WHERE is_national = 1 OR is_state = 1) AS shields]]></Parameter>
         </Datasource>
     </Layer>
+
+    <Layer id="green-areas" srs="&epsg900913;">
+        <Datasource>
+            <Parameter name="type">postgis</Parameter>
+            <Parameter name="host">&osm_host;</Parameter>
+            <Parameter name="port">&osm_port;</Parameter>
+            <Parameter name="user">&osm_user;</Parameter>
+            <Parameter name="password">&osm_pass;</Parameter>
+            <Parameter name="dbname">&osm_name;</Parameter>
+            <Parameter name="estimate_extent">false</Parameter>
+            <Parameter name="extent">&epsg900913_extent;</Parameter>
+
+            <Parameter name="table"><![CDATA[
+                (SELECT way,
+                        name,
+                        ST_Area(way) / 1000000 AS sq_km,
+                        (CASE WHEN leisure IN ('park', 'water_park', 'marina',
+                                               'nature_reserve', 'playground',
+                                               'garden', 'common') THEN 'park'
+                              WHEN amenity IN ('graveyard') THEN 'cemetery'
+                              WHEN landuse IN ('cemetery') THEN 'cemetery'
+                              WHEN leisure IN ('sports_centre', 'golf_course',
+                                               'stadium', 'track', 'pitch') THEN 'sport'
+                              WHEN landuse IN ('recreation_ground') THEN 'sport'
+                              WHEN landuse IN ('forest', 'wood') THEN 'forest'
+                         ELSE '' END) AS kind
+                 FROM planet_osm_polygon
+                 WHERE leisure IN ('park', 'water_park', 'marina', 'nature_reserve',
+                                   'playground', 'garden', 'common')
+                    OR amenity IN ('graveyard')
+                    OR landuse IN ('cemetery')
+                    OR leisure IN ('sports_centre', 'golf_course', 'stadium',
+                                   'track', 'pitch')
+                    OR landuse IN ('recreation_ground')
+                    OR landuse IN ('forest', 'wood')
+                 
+                 ORDER BY ST_Area(way) DESC
+                
+                ) AS green]]></Parameter>
+        </Datasource>
+    </Layer>
+    
     <Layer id="road-labels-skeletron" class="labels" srs="&epsg900913;">
         <Datasource>
             <Parameter name="type">postgis</Parameter>
@@ -398,6 +440,7 @@
                 FROM skeletron_roads) AS labels]]></Parameter>
         </Datasource>
     </Layer>
+
     <Layer id="road-labels-full" class="labels" srs="&epsg900913;">
         <Datasource>
             <Parameter name="type">postgis</Parameter>
