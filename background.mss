@@ -35,9 +35,14 @@ Map
 #green-areas[zoom=12][sq_km>0.0016][sq_km<400],
 #green-areas[zoom>=13][sq_km<200]
 {
-    polygon-fill: #b6cfb9;
+    polygon-fill: #c1d4b4;
     polygon-opacity: 0.5;
 }
+
+/* lighten color as we zoom out to blend with background */
+#green-areas[zoom=10][sq_km>0.0064][sq_km<1600] { polygon-fill: #b7ccab; }
+#green-areas[zoom=9][sq_km>0.0128][sq_km<3200]  { polygon-fill: #adc2a1; }
+#green-areas[zoom=8][sq_km>0.0256][sq_km<6400]  { polygon-fill: #a1b997; }
 
 #green-areas[zoom=8][sq_km>0.0128][sq_km<3200],
 #green-areas[zoom=9][sq_km>0.0064][sq_km<1600],
