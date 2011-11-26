@@ -624,6 +624,13 @@ Map {
 	
 /*//////// Labels! */
 
+#place-names[zoom>=10] name
+{
+    text-face-name: "PT Sans Narrow Regular";
+    text-fill: #000;
+    text-size: 14;
+}
+
 /*
 #airports[zoom=2][natlscale>148],
 #airports[zoom=3][natlscale>74],
