@@ -116,7 +116,7 @@
         </Datasource>
     </Layer>    
 
-    <Layer id="z10-roads" class="roads" srs="&epsg900913;">
+    <Layer id="z7-routes" class="routes" srs="&epsg900913;">
         <Datasource>
             <Parameter name="type">postgis</Parameter>
             <Parameter name="host">&osm_host;</Parameter>
@@ -126,7 +126,112 @@
             <Parameter name="dbname">&osm_name;</Parameter>
             <Parameter name="estimate_extent">false</Parameter>
             <Parameter name="extent">&epsg900913_extent;</Parameter>
-            <Parameter name="table">planet_osm_line_z10</Parameter>
+            <Parameter name="table"><![CDATA[
+                (SELECT the_geom, render
+
+                 FROM (
+                     SELECT 'outline' AS render, the_geom, network, highway, zoom_level
+                     FROM skeletron_routes
+                     UNION
+                     SELECT 'inline' AS render, the_geom, network, highway, zoom_level
+                     FROM skeletron_routes
+                 ) AS routes
+
+                 WHERE network IN ('US:I')
+                   AND zoom_level = 11
+
+                 ORDER BY render DESC) AS routes_z7
+                ]]></Parameter>
+        </Datasource>
+    </Layer>    
+
+    <Layer id="z8-routes" class="routes" srs="&epsg900913;">
+        <Datasource>
+            <Parameter name="type">postgis</Parameter>
+            <Parameter name="host">&osm_host;</Parameter>
+            <Parameter name="port">&osm_port;</Parameter>
+            <Parameter name="user">&osm_user;</Parameter>
+            <Parameter name="password">&osm_pass;</Parameter>
+            <Parameter name="dbname">&osm_name;</Parameter>
+            <Parameter name="estimate_extent">false</Parameter>
+            <Parameter name="extent">&epsg900913_extent;</Parameter>
+            <Parameter name="table"><![CDATA[
+                (SELECT the_geom, render
+
+                 FROM (
+                     SELECT 'outline' AS render, the_geom, network, highway, zoom_level
+                     FROM skeletron_routes
+                     UNION
+                     SELECT 'inline' AS render, the_geom, network, highway, zoom_level
+                     FROM skeletron_routes
+                 ) AS routes
+
+                 WHERE (network IN ('US:I', 'US:US')
+                        OR (network LIKE 'US:__' AND highway IN ('motorway')))
+                   AND zoom_level = 12
+
+                 ORDER BY render DESC) AS routes_z8
+                ]]></Parameter>
+        </Datasource>
+    </Layer>    
+
+    <Layer id="z9-routes" class="routes" srs="&epsg900913;">
+        <Datasource>
+            <Parameter name="type">postgis</Parameter>
+            <Parameter name="host">&osm_host;</Parameter>
+            <Parameter name="port">&osm_port;</Parameter>
+            <Parameter name="user">&osm_user;</Parameter>
+            <Parameter name="password">&osm_pass;</Parameter>
+            <Parameter name="dbname">&osm_name;</Parameter>
+            <Parameter name="estimate_extent">false</Parameter>
+            <Parameter name="extent">&epsg900913_extent;</Parameter>
+            <Parameter name="table"><![CDATA[
+                (SELECT the_geom, render
+
+                 FROM (
+                     SELECT 'outline' AS render, the_geom, network, highway, zoom_level
+                     FROM skeletron_routes
+                     UNION
+                     SELECT 'inline' AS render, the_geom, network, highway, zoom_level
+                     FROM skeletron_routes
+                 ) AS routes
+
+                 WHERE (network IN ('US:I', 'US:US')
+                        OR (network LIKE 'US:__' AND highway IN ('motorway', 'trunk')))
+                   AND zoom_level = 13
+
+                 ORDER BY render DESC) AS routes_z9
+                ]]></Parameter>
+        </Datasource>
+    </Layer>    
+
+    <Layer id="z10-routes" class="routes" srs="&epsg900913;">
+        <Datasource>
+            <Parameter name="type">postgis</Parameter>
+            <Parameter name="host">&osm_host;</Parameter>
+            <Parameter name="port">&osm_port;</Parameter>
+            <Parameter name="user">&osm_user;</Parameter>
+            <Parameter name="password">&osm_pass;</Parameter>
+            <Parameter name="dbname">&osm_name;</Parameter>
+            <Parameter name="estimate_extent">false</Parameter>
+            <Parameter name="extent">&epsg900913_extent;</Parameter>
+            <Parameter name="table"><![CDATA[
+                (SELECT the_geom, render
+
+                 FROM (
+                     SELECT 'outline' AS render, the_geom, network, highway, zoom_level
+                     FROM skeletron_routes
+                     UNION
+                     SELECT 'inline' AS render, the_geom, network, highway, zoom_level
+                     FROM skeletron_routes
+                 ) AS routes
+
+                 WHERE (network IN ('US:I', 'US:US')
+                        OR (network LIKE 'US:__' AND highway IN ('motorway', 'trunk', 'primary')))
+                   AND zoom_level = 14
+
+                 ORDER BY render DESC) AS routes_z10
+                ]]></Parameter>
         </Datasource>
     </Layer>    
 

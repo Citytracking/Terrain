@@ -16,7 +16,8 @@ Map {
 
 /*//////// Base line styles */
 
-.roads {
+.roads,
+.routes {
 	line-join: round;
 	line-cap: round;
 }
@@ -40,6 +41,16 @@ Map {
 
 
 /*//////// Colors */
+
+.routes[render=inline]
+{
+	line-color: #999;
+}
+
+.routes[render=outline]
+{
+	line-color: #ddd;
+}
 
 .roads[kind=highway][render=inline]
 {
@@ -94,26 +105,35 @@ Map {
 	line-dasharray: 2,5;
 }
 
-/*//////// Zoom Level 10 */
+/*//////// Zoom Level 10 and below */
 
-#z10-roads[zoom=10][kind=highway][render=inline]
+#z7-routes[zoom=7][render=outline]
 { 	
 	line-width: 2;
+	line-opacity: 0.5;
 }
 
-#z10-roads[zoom=10][kind=highway][render=outline]
-{ 	
-	line-width: 3.5;
-}
-
-#z10-roads[zoom=10][kind=major_road][render=inline]
-{ 	
-	line-width: 2;
-}
-
-#z10-roads[zoom=10][kind=minor_road][render=inline]
+#z8-routes[zoom=8][render=inline]
 { 	
 	line-width: 1; 
+}
+
+#z8-routes[zoom=8][render=outline]
+{ 	
+	line-width: 3; 
+	line-opacity: 0.8;
+}
+
+#z9-routes[zoom=9][render=inline],
+#z10-routes[zoom=10][render=inline]
+{ 	
+	line-width: 2; 
+}
+
+#z9-routes[zoom=9][render=outline],
+#z10-routes[zoom=10][render=outline]
+{ 	
+	line-width: 4; 
 }
 
 /*//////// Zoom Level 11 */
@@ -610,8 +630,8 @@ Map {
 #airports[zoom=4][natlscale>37],
 #airports[zoom=5][natlscale>18],
 #airports[zoom=6][natlscale>9.2],
-*/
 #airports[zoom=7][natlscale>4.6],
+*/
 #airports[zoom=8][natlscale>2.3],
 #airports[zoom=9][natlscale>1.2],
 #airports[zoom=10][natlscale>.57],
