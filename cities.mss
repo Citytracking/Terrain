@@ -3,6 +3,10 @@ Map
     map-bgcolor: transparent;
 }
 
+/**
+ * z10 and z11 dots are excluded here, because they are needed only by style.mml.
+ */
+
 #places-z4[zoom=4][point_size=5],
 #places-z5[zoom=5][point_size=5],
 #places-z6[zoom=6][point_size=5],
@@ -28,7 +32,9 @@ Map
 #labels-z6[zoom=6] name,
 #labels-z7[zoom=7] name,
 #labels-z8[zoom=8] name,
-#labels-z9[zoom=9] name
+#labels-z9[zoom=9] name,
+#labels-z10[zoom=10] name,
+#labels-z11[zoom=11] name
 {
     text-face-name: "PT Sans Narrow Regular";
     text-fill: #000;

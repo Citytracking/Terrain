@@ -14,6 +14,25 @@
     
     <Stylesheet src="cities.mss"/>
 
+    <Stylesheet><![CDATA[
+    
+       /**
+        * Import green areas but only at z9 to interact with city names.
+        */
+    
+        #green-areas[zoom=9][sq_km>52.4288][sq_km<819200] name
+        {
+            text-face-name: 'PT Sans Narrow Regular';
+            text-fill: #586e50;
+            text-size: 15;
+            
+            text-wrap-width: 96;
+            text-halo-fill: #d8f1ce;
+            text-halo-radius: 2;
+        }
+    
+    ]]></Stylesheet>
+
     <Layer class="labels" id="labels-z4" srs="&epsg900913;">
         <Datasource>
             <Parameter name="type">shape</Parameter>
@@ -103,4 +122,60 @@
     </Layer>
 
 
+    <Layer class="labels" id="labels-z10" srs="&epsg900913;">
+        <Datasource>
+            <Parameter name="type">shape</Parameter>
+            <Parameter name="file">cities/NA-labels-z10</Parameter>
+        </Datasource>
+    </Layer>
+
+    <Layer id="places-z10" srs="&epsg900913;">
+        <Datasource>
+            <Parameter name="type">shape</Parameter>
+            <Parameter name="file">cities/NA-places-z10</Parameter>
+        </Datasource>
+    </Layer>
+
+
+    <Layer id="green-areas" srs="&epsg900913;">
+        <Datasource>
+            <Parameter name="type">postgis</Parameter>
+            <Parameter name="host">&osm_host;</Parameter>
+            <Parameter name="port">&osm_port;</Parameter>
+            <Parameter name="user">&osm_user;</Parameter>
+            <Parameter name="password">&osm_pass;</Parameter>
+            <Parameter name="dbname">&osm_name;</Parameter>
+            <Parameter name="estimate_extent">false</Parameter>
+            <Parameter name="extent">&epsg900913_extent;</Parameter>
+
+            <Parameter name="table"><![CDATA[
+                (SELECT way,
+                        name,
+                        ST_Area(way) / 1000000 AS sq_km,
+                        (CASE WHEN leisure IN ('park', 'water_park', 'marina',
+                                               'nature_reserve', 'playground',
+                                               'garden', 'common') THEN 'park'
+                              WHEN amenity IN ('graveyard') THEN 'cemetery'
+                              WHEN landuse IN ('cemetery') THEN 'cemetery'
+                              WHEN leisure IN ('sports_centre', 'golf_course',
+                                               'stadium', 'track', 'pitch') THEN 'sport'
+                              WHEN landuse IN ('recreation_ground') THEN 'sport'
+                              WHEN landuse IN ('forest', 'wood') THEN 'forest'
+                         ELSE '' END) AS kind
+                 FROM planet_osm_polygon
+                 WHERE leisure IN ('park', 'water_park', 'marina', 'nature_reserve',
+                                   'playground', 'garden', 'common')
+                    OR amenity IN ('graveyard')
+                    OR landuse IN ('cemetery')
+                    OR leisure IN ('sports_centre', 'golf_course', 'stadium',
+                                   'track', 'pitch')
+                    OR landuse IN ('recreation_ground')
+                    OR landuse IN ('forest', 'wood')
+                 
+                 ORDER BY ST_Area(way) DESC
+                
+                ) AS green]]></Parameter>
+        </Datasource>
+    </Layer>
+    
 </Map>

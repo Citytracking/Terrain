@@ -14,10 +14,14 @@
     
     <Stylesheet src="cities.mss"/>
 
-    <Stylesheet>
+    <Stylesheet><![CDATA[
+    
+       /**
+        * Override colors to create a ground-on, labels-(almost)-off mask.
+        */
     
         Map { map-bgcolor: #fff; }
-        
+    
         .labels name
         {
             text-fill: #333;
@@ -25,7 +29,7 @@
             text-halo-fill: #333;
         }
     
-    </Stylesheet>
+    ]]></Stylesheet>
 
     <Layer class="labels" id="labels-z4" srs="&epsg900913;">
         <Datasource>
@@ -112,6 +116,21 @@
         <Datasource>
             <Parameter name="type">shape</Parameter>
             <Parameter name="file">cities/NA-places-z9</Parameter>
+        </Datasource>
+    </Layer>
+
+
+    <Layer class="labels" id="labels-z10" srs="&epsg900913;">
+        <Datasource>
+            <Parameter name="type">shape</Parameter>
+            <Parameter name="file">cities/NA-labels-z10</Parameter>
+        </Datasource>
+    </Layer>
+
+    <Layer id="places-z10" srs="&epsg900913;">
+        <Datasource>
+            <Parameter name="type">shape</Parameter>
+            <Parameter name="file">cities/NA-places-z10</Parameter>
         </Datasource>
     </Layer>
 

@@ -12,7 +12,27 @@
 ]>
 <Map srs="&epsg900913;">
     
+    <Stylesheet src="cities.mss"/>
     <Stylesheet src="stylesheet.mss"/>
+
+    <Stylesheet><![CDATA[
+    
+       /**
+        * Show dots for z10 here instead of cities.mml, because later
+        * layers like road shields need to react to dot placement.
+        */
+    
+        #places-z10[zoom=10][point_size=5]
+        {
+            point-file: url("cities/dot-5.png");
+        }
+        
+        #places-z10[zoom=10][point_size=7]
+        {
+            point-file: url("cities/dot-7.png");
+        }
+    
+    ]]></Stylesheet>
 
     <Layer status="on" id="land-city" srs="&epsg900913;">
         <Datasource>
@@ -302,6 +322,20 @@
             <Parameter name="estimate_extent">false</Parameter>
             <Parameter name="extent">&epsg900913_extent;</Parameter>
             <Parameter name="table">planet_osm_line_z15plus</Parameter>
+        </Datasource>
+    </Layer>
+
+    <Layer class="labels" id="labels-z10" srs="&epsg900913;">
+        <Datasource>
+            <Parameter name="type">shape</Parameter>
+            <Parameter name="file">cities/NA-labels-z10</Parameter>
+        </Datasource>
+    </Layer>
+
+    <Layer class="places" id="places-z10" srs="&epsg900913;">
+        <Datasource>
+            <Parameter name="type">shape</Parameter>
+            <Parameter name="file">cities/NA-places-z10</Parameter>
         </Datasource>
     </Layer>
 

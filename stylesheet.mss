@@ -813,7 +813,9 @@ Map {
     shield-fill: #fff;
 }
 
+/*
 #green-areas[zoom=9][sq_km>52.4288][sq_km<819200] name,
+*/
 #green-areas[zoom=10][sq_km>13.107][sq_km<204800] name,
 #green-areas[zoom=11][sq_km>3.2768][sq_km<51200] name,
 #green-areas[zoom=12][sq_km>0.8192][sq_km<25600] name,
@@ -826,12 +828,13 @@ Map {
 #green-areas[zoom>=19][sq_km<200] name
 {
     text-face-name: 'PT Sans Narrow Regular';
-    text-fill: #687f60;
+    text-fill: #586e50;
     text-size: 18;
     
     text-wrap-width: 96;
-    text-halo-fill: #ddf5d2;
+    text-halo-fill: #f7ffdc;
     text-halo-radius: 2;
 }
 
 #green-areas[zoom<15] name { text-size: 15 !important; }
+#green-areas[zoom<12] name { text-halo-fill: #d8f1ce !important; }
