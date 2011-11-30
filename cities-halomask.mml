@@ -23,7 +23,7 @@
         Map { map-bgcolor: #fff; }
     
         .labels name,
-        #green-areas[zoom=9][sq_km>52.4288][sq_km<819200] name
+        #green-areas name
         {
             text-fill: #333;
             text-halo-radius: 3;
@@ -134,6 +134,7 @@
             <Parameter name="file">cities/NA-places-z10</Parameter>
         </Datasource>
     </Layer>
+
 
     <Layer id="green-areas" srs="&epsg900913;">
         <Datasource>

@@ -117,6 +117,7 @@
         </Datasource>
     </Layer>
 
+
     <Layer id="green-areas" srs="&epsg900913;">
         <Datasource>
             <Parameter name="type">postgis</Parameter>
