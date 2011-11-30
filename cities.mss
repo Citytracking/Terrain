@@ -42,6 +42,7 @@ Map
 .labels[font_size=24] name { text-size: 24; }
 .labels[font_size=32] name { text-size: 32; }
 
+#green-areas[zoom=8][sq_km>209.72][sq_km<3276800] name,
 #green-areas[zoom=9][sq_km>52.4288][sq_km<819200] name,
 #green-areas[zoom=10][sq_km>13.107][sq_km<204800] name
 {

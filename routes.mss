@@ -23,7 +23,6 @@
     shield-fill: #fff;
 }
 
-#skeletron-routes[show_zoom=10][zoom=9][network="US:US"] ref,
 #skeletron-routes[show_zoom=10][zoom=10][network="US:US"] ref,
 #skeletron-routes[show_zoom=11][zoom=11][network="US:US"] ref,
 #skeletron-routes[show_zoom=12][zoom=12][network="US:US"] ref,
