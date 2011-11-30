@@ -44,3 +44,12 @@ Map
 .labels[font_size=18] name { text-size: 18; }
 .labels[font_size=24] name { text-size: 24; }
 .labels[font_size=32] name { text-size: 32; }
+
+#green-areas[zoom=9][sq_km>52.4288][sq_km<819200] name
+{
+    text-face-name: 'PT Sans Narrow Regular';
+    text-fill: #304429;
+    text-size: 15;
+    
+    text-wrap-width: 96;
+}

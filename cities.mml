@@ -14,25 +14,6 @@
     
     <Stylesheet src="cities.mss"/>
 
-    <Stylesheet><![CDATA[
-    
-       /**
-        * Import green areas but only at z9 to interact with city names.
-        */
-    
-        #green-areas[zoom=9][sq_km>52.4288][sq_km<819200] name
-        {
-            text-face-name: 'PT Sans Narrow Regular';
-            text-fill: #586e50;
-            text-size: 15;
-            
-            text-wrap-width: 96;
-            text-halo-fill: #d8f1ce;
-            text-halo-radius: 2;
-        }
-    
-    ]]></Stylesheet>
-
     <Layer class="labels" id="labels-z4" srs="&epsg900913;">
         <Datasource>
             <Parameter name="type">shape</Parameter>
@@ -135,7 +116,6 @@
             <Parameter name="file">cities/NA-places-z10</Parameter>
         </Datasource>
     </Layer>
-
 
     <Layer id="green-areas" srs="&epsg900913;">
         <Datasource>
