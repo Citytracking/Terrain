@@ -52,13 +52,13 @@ renders/sanfrancisco-15-bg.jpg:
 
 
 
-style.xml: style.mml stylesheet.mss
+style.xml: style.mml stylesheet.mss routes.mss
 	cascadenik-compile.py style.mml style.xml
 
 background.xml: background.mml background.mss
 	cascadenik-compile.py background.mml background.xml
 
-cities.xml: cities.mml cities.mss
+cities.xml: cities.mml cities.mss routes.mss
 	cascadenik-compile.py cities.mml cities.xml
 
 cities-halomask.xml: cities-halomask.mml cities.mss

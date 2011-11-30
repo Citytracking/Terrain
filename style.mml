@@ -12,8 +12,8 @@
 ]>
 <Map srs="&epsg900913;">
     
-    <Stylesheet src="cities.mss"/>
     <Stylesheet src="stylesheet.mss"/>
+    <Stylesheet src="routes.mss"/>
 
     <Layer status="on" id="land-city" srs="&epsg900913;">
         <Datasource>
@@ -353,7 +353,7 @@
         </Datasource>
     </Layer>
     -->
-    <Layer id="skeletron-routes" class="labels" srs="&epsg900913;">
+    <Layer id="skeletron-routes" srs="&epsg900913;">
         <Datasource>
             <Parameter name="type">postgis</Parameter>
             <Parameter name="host">&osm_host;</Parameter>
@@ -367,7 +367,8 @@
                 (SELECT network, ref, highway, is_state, the_geom, zoom_level AS show_zoom,
                         LENGTH(ref) AS ref_len
                 FROM skeletron_routes_cleanrefs
-                WHERE is_national = 1 OR is_state = 1) AS shields]]></Parameter>
+                WHERE (is_national = 1 OR is_state = 1)
+                  AND zoom_level >= 11) AS shields]]></Parameter>
         </Datasource>
     </Layer>
 
