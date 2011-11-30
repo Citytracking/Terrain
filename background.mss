@@ -39,10 +39,12 @@ Map
     polygon-opacity: 0.5;
 }
 
-/* lighten color as we zoom out to blend with background */
-#green-areas[zoom=10][sq_km>0.0064][sq_km<1600] { polygon-fill: #b7ccab; }
-#green-areas[zoom=9][sq_km>0.0128][sq_km<3200]  { polygon-fill: #adc2a1; }
-#green-areas[zoom=8][sq_km>0.0256][sq_km<6400]  { polygon-fill: #a1b997; }
+/* darken color as we zoom out to blend with background */
+#green-areas[zoom=12][sq_km>0.0016][sq_km<400]  { polygon-fill: #b7ccab; }
+#green-areas[zoom=11][sq_km>0.0032][sq_km<800]  { polygon-fill: #adc2a1; }
+#green-areas[zoom=10][sq_km>0.0064][sq_km<1600] { polygon-fill: #a1b997; }
+#green-areas[zoom=9][sq_km>0.0128][sq_km<3200]  { polygon-fill: #8ba77f; }
+#green-areas[zoom=8][sq_km>0.0256][sq_km<6400]  { polygon-fill: #819d75; }
 
 #green-areas[zoom=8][sq_km>0.0128][sq_km<3200],
 #green-areas[zoom=9][sq_km>0.0064][sq_km<1600],
