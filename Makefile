@@ -1,13 +1,18 @@
 all: landcover-1km-merc-z3.tif landcover-1km-tile.jpg
 
 #
-# We really want z7, but for some reason gdalwarp leaves it with dark
-# blocks in the image, so make a z8 first and then downsample it.
+# This is the important one.
 #
-landcover-1km-merc-z7.tif: landcover-1km-rgb.tif landcover-1km-to-merc.vrt
-	gdalwarp -t_srs EPSG:900913 -te -18785163.35 2191601.32 -5635548.94 10644923.99 -tr 611.496 611.496 -r cubicspline -tps landcover-1km-to-merc.vrt landcover-1km-merc-z8-progress.tif
-	gdalwarp -tr 1222.992 1222.992 -r bilinear landcover-1km-merc-z8-progress.tif landcover-1km-merc-z7-progress.tif
-	mv landcover-1km-merc-z8-progress.tif landcover-1km-merc-z8.tif
+landcover-1km-merc-tiles.vrt: landcover-1km-rgb.tif landcover-1km-to-merc.vrt
+	rm -rf tiles/*.tif
+	python tile-out.py tiles | sh
+	gdalbuildvrt merc-tiles-progress.vrt tiles/*.tif
+	perl -pi -e 's/relativeToVRT="0"/relativeToVRT="1"/' merc-tiles-progress.vrt
+	chmod +r merc-tiles-progress.vrt
+	mv merc-tiles-progress.vrt landcover-1km-merc-tiles.vrt
+
+landcover-1km-merc-z7.tif: landcover-1km-merc-tiles.vrt
+	gdalwarp -te -18785163.35 2191601.32 -5635548.94 10644923.99 -tr 1222.992 1222.992 -r bilinear landcover-1km-merc-tiles.vrt landcover-1km-merc-z7-progress.tif
 	mv landcover-1km-merc-z7-progress.tif landcover-1km-merc-z7.tif
 
 landcover-1km-merc-z5.tif: landcover-1km-merc-z7.tif
