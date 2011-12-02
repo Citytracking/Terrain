@@ -58,7 +58,7 @@ style.xml: style.mml stylesheet.mss routes.mss
 background.xml: background.mml background.mss
 	cascadenik-compile.py background.mml background.xml
 
-cities.xml: cities.mml cities.mss routes.mss
+cities.xml: cities.mml cities.mss routes.mss states.mss
 	cascadenik-compile.py cities.mml cities.xml
 
 cities-halomask.xml: cities-halomask.mml cities.mss

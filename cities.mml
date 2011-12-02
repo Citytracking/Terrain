@@ -12,8 +12,23 @@
 ]>
 <Map srs="&epsg900913;">
     
+    <Stylesheet src="states.mss"/>
     <Stylesheet src="cities.mss"/>
     <Stylesheet src="routes.mss"/>
+
+    <Layer class="country-lines political-boundaries" id="country-lines-10m" srs="&epsg900913;">
+        <Datasource>
+            <Parameter name="type">shape</Parameter>
+            <Parameter name="file">states/10m-admin-0-boundary-lines-land-usa</Parameter>
+        </Datasource>
+    </Layer>
+
+    <Layer class="state-lines political-boundaries" id="state-lines-10m" srs="&epsg900913;">
+        <Datasource>
+            <Parameter name="type">shape</Parameter>
+            <Parameter name="file">states/10m-admin-1-states-provinces-lines-usa</Parameter>
+        </Datasource>
+    </Layer>
 
     <Layer class="labels" id="labels-z4" srs="&epsg900913;">
         <Datasource>
