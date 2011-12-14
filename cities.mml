@@ -9,6 +9,10 @@
     <!ENTITY osm_name "planet_osm">
     <!ENTITY osm_user "osm">
     <!ENTITY osm_pass "">
+
+    <!ENTITY ter_name "terrain">
+    <!ENTITY ter_user "terrain">
+    <!ENTITY ter_pass "">
 ]>
 <Map srs="&epsg900913;">
     
@@ -27,6 +31,21 @@
         <Datasource>
             <Parameter name="type">shape</Parameter>
             <Parameter name="file">states/10m-admin-1-states-provinces-lines-usa</Parameter>
+        </Datasource>
+    </Layer>
+
+    <Layer class="state-lines political-boundaries" id="state-lines-full" srs="&epsg900913;">
+        <Datasource>
+            <Parameter name="type">postgis</Parameter>
+            <Parameter name="host">&osm_host;</Parameter>
+            <Parameter name="port">&osm_port;</Parameter>
+            <Parameter name="user">&ter_user;</Parameter>
+            <Parameter name="password">&ter_pass;</Parameter>
+            <Parameter name="dbname">&ter_name;</Parameter>
+            <Parameter name="estimate_extent">false</Parameter>
+            <Parameter name="extent">&epsg900913_extent;</Parameter>
+            <Parameter name="geometry_field">border_land</Parameter>
+            <Parameter name="table">state_lines</Parameter>
         </Datasource>
     </Layer>
 
@@ -191,6 +210,96 @@
                 FROM skeletron_routes_cleanrefs
                 WHERE (is_national = 1 OR is_state = 1)
                   AND zoom_level < 11) AS shields]]></Parameter>
+        </Datasource>
+    </Layer>
+
+    <Layer class="state-insets" id="state-insets-z9" srs="&epsg900913;">
+        <Datasource>
+            <Parameter name="type">postgis</Parameter>
+            <Parameter name="host">&osm_host;</Parameter>
+            <Parameter name="port">&osm_port;</Parameter>
+            <Parameter name="user">&ter_user;</Parameter>
+            <Parameter name="password">&ter_pass;</Parameter>
+            <Parameter name="dbname">&ter_name;</Parameter>
+            <Parameter name="estimate_extent">false</Parameter>
+            <Parameter name="extent">&epsg900913_extent;</Parameter>
+            <Parameter name="geometry_field">inset_z9</Parameter>
+            <Parameter name="table">state_insets</Parameter>
+        </Datasource>
+    </Layer>
+
+    <Layer class="state-insets" id="state-insets-z10" srs="&epsg900913;">
+        <Datasource>
+            <Parameter name="type">postgis</Parameter>
+            <Parameter name="host">&osm_host;</Parameter>
+            <Parameter name="port">&osm_port;</Parameter>
+            <Parameter name="user">&ter_user;</Parameter>
+            <Parameter name="password">&ter_pass;</Parameter>
+            <Parameter name="dbname">&ter_name;</Parameter>
+            <Parameter name="estimate_extent">false</Parameter>
+            <Parameter name="extent">&epsg900913_extent;</Parameter>
+            <Parameter name="geometry_field">inset_z10</Parameter>
+            <Parameter name="table">state_insets</Parameter>
+        </Datasource>
+    </Layer>
+
+    <Layer class="state-insets" id="state-insets-z11" srs="&epsg900913;">
+        <Datasource>
+            <Parameter name="type">postgis</Parameter>
+            <Parameter name="host">&osm_host;</Parameter>
+            <Parameter name="port">&osm_port;</Parameter>
+            <Parameter name="user">&ter_user;</Parameter>
+            <Parameter name="password">&ter_pass;</Parameter>
+            <Parameter name="dbname">&ter_name;</Parameter>
+            <Parameter name="estimate_extent">false</Parameter>
+            <Parameter name="extent">&epsg900913_extent;</Parameter>
+            <Parameter name="geometry_field">inset_z11</Parameter>
+            <Parameter name="table">state_insets</Parameter>
+        </Datasource>
+    </Layer>
+
+    <Layer class="state-insets" id="state-insets-z12" srs="&epsg900913;">
+        <Datasource>
+            <Parameter name="type">postgis</Parameter>
+            <Parameter name="host">&osm_host;</Parameter>
+            <Parameter name="port">&osm_port;</Parameter>
+            <Parameter name="user">&ter_user;</Parameter>
+            <Parameter name="password">&ter_pass;</Parameter>
+            <Parameter name="dbname">&ter_name;</Parameter>
+            <Parameter name="estimate_extent">false</Parameter>
+            <Parameter name="extent">&epsg900913_extent;</Parameter>
+            <Parameter name="geometry_field">inset_z12</Parameter>
+            <Parameter name="table">state_insets</Parameter>
+        </Datasource>
+    </Layer>
+
+    <Layer class="state-insets" id="state-insets-z13" srs="&epsg900913;">
+        <Datasource>
+            <Parameter name="type">postgis</Parameter>
+            <Parameter name="host">&osm_host;</Parameter>
+            <Parameter name="port">&osm_port;</Parameter>
+            <Parameter name="user">&ter_user;</Parameter>
+            <Parameter name="password">&ter_pass;</Parameter>
+            <Parameter name="dbname">&ter_name;</Parameter>
+            <Parameter name="estimate_extent">false</Parameter>
+            <Parameter name="extent">&epsg900913_extent;</Parameter>
+            <Parameter name="geometry_field">inset_z13</Parameter>
+            <Parameter name="table">state_insets</Parameter>
+        </Datasource>
+    </Layer>
+
+    <Layer class="state-insets" id="state-insets-z14" srs="&epsg900913;">
+        <Datasource>
+            <Parameter name="type">postgis</Parameter>
+            <Parameter name="host">&osm_host;</Parameter>
+            <Parameter name="port">&osm_port;</Parameter>
+            <Parameter name="user">&ter_user;</Parameter>
+            <Parameter name="password">&ter_pass;</Parameter>
+            <Parameter name="dbname">&ter_name;</Parameter>
+            <Parameter name="estimate_extent">false</Parameter>
+            <Parameter name="extent">&epsg900913_extent;</Parameter>
+            <Parameter name="geometry_field">inset_z14</Parameter>
+            <Parameter name="table">state_insets</Parameter>
         </Datasource>
     </Layer>
 
