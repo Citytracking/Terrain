@@ -1,0 +1,100 @@
+<VRTDataset rasterXSize="10030" rasterYSize="7265">
+  <Metadata>
+    <MDI key="TIFFTAG_IMAGEDESCRIPTION">North American Land Cover Characteristics</MDI>
+    <MDI key="TIFFTAG_SOFTWARE">USGS DRG production software</MDI>
+    <MDI key="TIFFTAG_DATETIME">2002:12:09 09:24:29</MDI>
+    <MDI key="TIFFTAG_ARTIST">National Atlas of the United States public domain raw data</MDI>
+    <MDI key="TIFFTAG_XRESOLUTION">254</MDI>
+    <MDI key="TIFFTAG_YRESOLUTION">254</MDI>
+    <MDI key="TIFFTAG_RESOLUTIONUNIT">2 (pixels/inch)</MDI>
+    <MDI key="AREA_OR_POINT">Area</MDI>
+  </Metadata>
+  <GCPList Projection="PROJCS[&quot;TIFF 6.0, GeoTIFF Revision 1.0&quot;,GEOGCS[&quot;WGS 84&quot;,DATUM[&quot;WGS_1984&quot;,SPHEROID[&quot;WGS 84&quot;,6378137,298.2572235630016,AUTHORITY[&quot;EPSG&quot;,&quot;7030&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;6326&quot;]],PRIMEM[&quot;Greenwich&quot;,0],UNIT[&quot;degree&quot;,0.0174532925199433],AUTHORITY[&quot;EPSG&quot;,&quot;4326&quot;]],PROJECTION[&quot;Lambert_Azimuthal_Equal_Area&quot;],PARAMETER[&quot;latitude_of_center&quot;,45],PARAMETER[&quot;longitude_of_center&quot;,-100],PARAMETER[&quot;false_easting&quot;,0],PARAMETER[&quot;false_northing&quot;,0],UNIT[&quot;metre&quot;,1,AUTHORITY[&quot;EPSG&quot;,&quot;9001&quot;]]]">
+
+    <!-- SF -->
+    <GCP Id="" Pixel="3817" Line="5019" X="-1944016" Y="-534146"/>
+
+    <!-- Seattle -->
+    <GCP Id="" Pixel="3966" Line="3828" X="-1794875" Y="656909"/>
+
+    <!-- Ches. -->
+    <GCP Id="" Pixel="7852" Line="5053" X="2105368" Y="-572224"/>
+
+    <!-- Alaska -->
+    <GCP Id="" Pixel="3960" Line="820" X="-1805163" Y="3674156"/>
+
+    <!-- Baja -->
+    <GCP Id="" Pixel="4267" Line="6252" X="-1490923" Y="-1768113"/>
+
+    <!-- Cabo -->
+    <GCP Id="" Pixel="4722" Line="6869" X="-1037949" Y="-2381299"/>
+
+    <!-- San Miguel -->
+    <GCP Id="" Pixel="7159" Line="7073" X="1408708" Y="-2584109"/>
+
+    <!-- Tamiahua -->
+    <GCP Id="" Pixel="6036" Line="7063" X="282176" Y="-2577643"/>
+
+    <!-- NOLA -->
+    <GCP Id="" Pixel="6732" Line="6073" X="981051" Y="-1586985"/>
+
+    <!-- Key Largo -->
+    <!-- GCP Id="" Pixel="7742" Line="6442" X="1991830" Y="-1955909"/ -->
+
+    <!-- Cape Cod -->
+    <GCP Id="" Pixel="8142" Line="4365" X="2398922" Y="117623"/>
+
+    <!-- Michigan -->
+    <!-- GCP Id="" Pixel="6777" Line="4354" X="1025521" Y="130254"/ -->
+
+
+    <!-- Hilo -->
+    <GCP Id="" Pixel="297" Line="5489" X="-5471170" Y="-1004930"/>
+
+    <!-- Homestead -->
+    <GCP Id="" Pixel="7738" Line="6433" X="1990010" Y="-1943888"/>
+
+    <!-- Puerto Rico -->
+    <GCP Id="" Pixel="9373" Line="6718" X="3625614" Y="-2230628"/>
+
+    <!-- Houghton -->
+    <GCP Id="" Pixel="6672" Line="4143" X="920471" Y="340680"/>
+
+    <!-- Cape Breton -->
+    <GCP Id="" Pixel="8600" Line="3530" X="2856970" Y="955833"/>
+
+  </GCPList>
+  <VRTRasterBand dataType="Byte" band="1">
+    <Metadata/>
+    <ColorInterp>Red</ColorInterp>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">landcover-1km-rgb.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="10030" RasterYSize="7265" DataType="Byte" BlockXSize="10030" BlockYSize="1"/>
+      <SrcRect xOff="0" yOff="0" xSize="10030" ySize="7265"/>
+      <DstRect xOff="0" yOff="0" xSize="10030" ySize="7265"/>
+    </SimpleSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="2">
+    <Metadata/>
+    <ColorInterp>Green</ColorInterp>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">landcover-1km-rgb.tif</SourceFilename>
+      <SourceBand>2</SourceBand>
+      <SourceProperties RasterXSize="10030" RasterYSize="7265" DataType="Byte" BlockXSize="10030" BlockYSize="1"/>
+      <SrcRect xOff="0" yOff="0" xSize="10030" ySize="7265"/>
+      <DstRect xOff="0" yOff="0" xSize="10030" ySize="7265"/>
+    </SimpleSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="3">
+    <Metadata/>
+    <ColorInterp>Blue</ColorInterp>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">landcover-1km-rgb.tif</SourceFilename>
+      <SourceBand>3</SourceBand>
+      <SourceProperties RasterXSize="10030" RasterYSize="7265" DataType="Byte" BlockXSize="10030" BlockYSize="1"/>
+      <SrcRect xOff="0" yOff="0" xSize="10030" ySize="7265"/>
+      <DstRect xOff="0" yOff="0" xSize="10030" ySize="7265"/>
+    </SimpleSource>
+  </VRTRasterBand>
+</VRTDataset>
