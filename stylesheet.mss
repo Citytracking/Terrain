@@ -625,12 +625,21 @@ Map {
 	
 /*//////// Labels! */
 
-#place-names[zoom>=10] name
+#place-names[zoom>=11][zoom<17] name
 {
     text-face-name: "PT Sans Narrow Regular";
     text-fill: #000;
-    text-size: 14;
 }
+
+#place-names[zoom>=12][zoom<17] name
+{
+    text-halo-fill: #f7f7e6;
+    text-halo-radius: 2;
+}
+
+#place-names[font_size=18] name { text-size: 18; }
+#place-names[font_size=24] name { text-size: 24; }
+#place-names[font_size=32] name { text-size: 32; }
 
 /*
 #airports[zoom=2][natlscale>148],
