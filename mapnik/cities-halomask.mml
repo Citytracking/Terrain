@@ -21,7 +21,19 @@
         */
     
         Map { map-bgcolor: #fff; }
-    
+
+        #labels-high[zoom=11][population>0] name,
+        #labels-high[zoom=11][place=city] name,
+        #labels-high[zoom=11][place=town] name
+        {
+            text-face-name: "PT Sans Narrow Regular";
+            text-fill: #fff;
+        }
+        
+        #labels-high[font_size=18] name { text-size: 18; }
+        #labels-high[font_size=24] name { text-size: 24; }
+        #labels-high[font_size=32] name { text-size: 32; }
+        
         .labels name,
         #green-areas name
         {
@@ -134,6 +146,32 @@
             <Parameter name="file">cities/NA-places-z10</Parameter>
         </Datasource>
     </Layer>
+
+    <Layer class="labels" id="labels-high" srs="&epsg900913;">
+        <Datasource>
+            <Parameter name="type">postgis</Parameter>
+            <Parameter name="host">&osm_host;</Parameter>
+            <Parameter name="port">&osm_port;</Parameter>
+            <Parameter name="user">&osm_user;</Parameter>
+            <Parameter name="password">&osm_pass;</Parameter>
+            <Parameter name="dbname">&osm_name;</Parameter>
+            <Parameter name="estimate_extent">false</Parameter>
+            <Parameter name="extent">&epsg900913_extent;</Parameter>
+            <Parameter name="table"><![CDATA[
+            (
+                SELECT place, name, COALESCE(population, 0) AS population, way,
+                      (CASE WHEN population >= 250000 THEN 32
+                            WHEN population >= 50000 THEN 24
+                            WHEN place IN ('city', 'town') THEN 24
+                            ELSE 18
+                            END) AS font_size
+                FROM places_osm_point
+                WHERE place IN ('city', 'town', 'village', 'hamlet')
+                ORDER BY population DESC
+            ) AS labels
+            ]]></Parameter>
+        </Datasource>
+    </Layer>    
 
 
     <Layer id="green-areas" srs="&epsg900913;">

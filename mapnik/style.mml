@@ -306,7 +306,7 @@
         </Datasource>
     </Layer>
 
-    <Layer status="off" id="place-names" srs="&epsg900913;">
+    <Layer id="place-names" srs="&epsg900913;">
         <Datasource>
             <Parameter name="type">postgis</Parameter>
             <Parameter name="host">&osm_host;</Parameter>
@@ -317,10 +317,18 @@
             <Parameter name="estimate_extent">false</Parameter>
             <Parameter name="extent">&epsg900913_extent;</Parameter>
             <Parameter name="table"><![CDATA[
-                (SELECT way, name
-                 FROM planet_osm_point
-                 WHERE place IN ('city', 'town', 'village')) AS places
-                ]]></Parameter>
+            (
+                SELECT place, name, COALESCE(population, 0) AS population, way,
+                      (CASE WHEN population >= 250000 THEN 32
+                            WHEN population >= 50000 THEN 24
+                            WHEN place IN ('city', 'town') THEN 24
+                            ELSE 18
+                            END) AS font_size
+                FROM places_osm_point
+                WHERE place IN ('city', 'town', 'village', 'hamlet')
+                ORDER BY population DESC
+            ) AS labels
+            ]]></Parameter>
         </Datasource>
     </Layer>    
 
