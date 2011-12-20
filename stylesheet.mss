@@ -625,7 +625,10 @@ Map {
 	
 /*//////// Labels! */
 
-#place-names[zoom>=11][zoom<17] name
+#place-names[zoom>=11][zoom<15][population>0] name,
+#place-names[zoom>=11][zoom<15][place=city] name,
+#place-names[zoom>=11][zoom<15][place=town] name,
+#place-names[zoom>=15][zoom<17] name
 {
     text-face-name: "PT Sans Narrow Regular";
     text-fill: #000;
