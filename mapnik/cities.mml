@@ -205,11 +205,11 @@
             <Parameter name="estimate_extent">false</Parameter>
             <Parameter name="extent">&epsg900913_extent;</Parameter>
             <Parameter name="table"><![CDATA[
-                (SELECT network, ref, highway, is_state, the_geom, zoom_level AS show_zoom,
+                (SELECT network, ref, highway, is_state, the_geom, zoomlevel AS show_zoom,
                         LENGTH(ref) AS ref_len
                 FROM skeletron_routes_cleanrefs
                 WHERE (is_national = 1 OR is_state = 1)
-                  AND zoom_level < 11) AS shields]]></Parameter>
+                  AND zoomlevel < 11) AS shields]]></Parameter>
         </Datasource>
     </Layer>
 
