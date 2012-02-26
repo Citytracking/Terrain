@@ -159,15 +159,15 @@
             <Parameter name="extent">&epsg900913_extent;</Parameter>
             <Parameter name="table"><![CDATA[
             (
-                SELECT place, name, COALESCE(population, 0) AS population, way,
-                      (CASE WHEN population >= 250000 THEN 32
-                            WHEN population >= 50000 THEN 24
+                SELECT place, name, COALESCE(CAST(population AS integer), 0) AS population, way,
+                      (CASE WHEN CAST(population AS integer) >= 250000 THEN 32
+                            WHEN CAST(population AS integer) >= 50000 THEN 24
                             WHEN place IN ('city', 'town') THEN 24
                             ELSE 18
                             END) AS font_size
-                FROM places_osm_point
+                FROM planet_osm_point
                 WHERE place IN ('city', 'town', 'village', 'hamlet')
-                ORDER BY population DESC
+                ORDER BY CAST(population AS integer) DESC
             ) AS labels
             ]]></Parameter>
         </Datasource>
