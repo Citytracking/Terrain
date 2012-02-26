@@ -6,7 +6,7 @@ MOS_LATLON = 55.882322 37.724175
 all: index.html background.xml cities.xml cities-halomask.xml
 
 stack.html: \
-	renders/sanfrancisco-14-background.png
+	renders/sanfrancisco-14-hillshading.jpg renders/sanfrancisco-14-background.png
 
 index.html: \
 	renders/sanfrancisco-10.png renders/sanfrancisco-11.png renders/sanfrancisco-12.png \
@@ -54,6 +54,9 @@ renders/sanfrancisco-15-bg.jpg:
 	python modestmaps-compose.py -c $(SFO_LATLON) -z 15 -p "http://tilefarm.stamen.com/imhof-hills/{Z}/{X}/{Y}.jpg" -d 1024 512 $@
 
 
+
+renders/sanfrancisco-14-hillshading.jpg:
+	tilestache-compose.py -c ../tilestache.cfg -l hillshading -n $(SFO_LATLON) -z 14 -d 1024 512 $@
 
 renders/sanfrancisco-14-background.png: background.xml
 	python mapnik-render.py -f fonts -s background.xml -l $(SFO_LATLON) -z 14 -d 1024 512 -o $@
