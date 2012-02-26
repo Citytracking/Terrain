@@ -9,12 +9,15 @@ stack.html: \
 	renders/sanfrancisco-14-land-cover.jpg renders/sanfrancisco-14-hillshading.jpg \
 	renders/sanfrancisco-14-background.png renders/sanfrancisco-14-water-mask.png \
 	renders/sanfrancisco-14-grey-roads.png renders/sanfrancisco-14-city-names-halomask.png \
+	renders/sanfrancisco-14-city-names.png \
 	renders/sanfrancisco-11-land-cover.jpg renders/sanfrancisco-11-hillshading.jpg \
 	renders/sanfrancisco-11-background.png renders/sanfrancisco-11-water-mask.png \
 	renders/sanfrancisco-11-grey-roads.png renders/sanfrancisco-11-city-names-halomask.png \
+	renders/sanfrancisco-11-city-names.png \
 	renders/sanfrancisco-8-land-cover.jpg renders/sanfrancisco-8-hillshading.jpg \
 	renders/sanfrancisco-8-background.png renders/sanfrancisco-8-water-mask.png \
-	renders/sanfrancisco-8-grey-roads.png renders/sanfrancisco-8-city-names-halomask.png
+	renders/sanfrancisco-8-grey-roads.png renders/sanfrancisco-8-city-names-halomask.png \
+	renders/sanfrancisco-8-city-names.png
 
 index.html: \
 	renders/sanfrancisco-10.png renders/sanfrancisco-11.png renders/sanfrancisco-12.png \
@@ -81,6 +84,9 @@ renders/sanfrancisco-14-grey-roads.png: style.xml
 renders/sanfrancisco-14-city-names-halomask.png: cities-halomask.xml
 	python mapnik-render.py -f fonts -s cities-halomask.xml -l $(SFO_LATLON) -z 14 -d 1024 512 -o $@
 
+renders/sanfrancisco-14-city-names.png: cities.xml
+	python mapnik-render.py -f fonts -s cities.xml -l $(SFO_LATLON) -z 14 -d 1024 512 -o $@
+
 
 renders/sanfrancisco-11-land-cover.jpg:
 	tilestache-compose.py -c ../tilestache.cfg -l land-cover -n $(SFO_LATLON) -z 11 -d 1024 512 $@
@@ -100,6 +106,9 @@ renders/sanfrancisco-11-grey-roads.png: style.xml
 renders/sanfrancisco-11-city-names-halomask.png: cities-halomask.xml
 	python mapnik-render.py -f fonts -s cities-halomask.xml -l $(SFO_LATLON) -z 11 -d 1024 512 -o $@
 
+renders/sanfrancisco-11-city-names.png: cities.xml
+	python mapnik-render.py -f fonts -s cities.xml -l $(SFO_LATLON) -z 11 -d 1024 512 -o $@
+
 
 renders/sanfrancisco-8-land-cover.jpg:
 	tilestache-compose.py -c ../tilestache.cfg -l land-cover -n $(SFO_LATLON) -z 8 -d 1024 512 $@
@@ -118,6 +127,9 @@ renders/sanfrancisco-8-grey-roads.png: style.xml
 
 renders/sanfrancisco-8-city-names-halomask.png: cities-halomask.xml
 	python mapnik-render.py -f fonts -s cities-halomask.xml -l $(SFO_LATLON) -z 8 -d 1024 512 -o $@
+
+renders/sanfrancisco-8-city-names.png: cities.xml
+	python mapnik-render.py -f fonts -s cities.xml -l $(SFO_LATLON) -z 8 -d 1024 512 -o $@
 
 
 
