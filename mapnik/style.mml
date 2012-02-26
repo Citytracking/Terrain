@@ -131,15 +131,15 @@
                 (SELECT the_geom, render
 
                  FROM (
-                     SELECT 'outline' AS render, the_geom, network, highway, zoom_level
+                     SELECT 'outline' AS render, the_geom, network, highway, zoomlevel
                      FROM skeletron_routes
                      UNION
-                     SELECT 'inline' AS render, the_geom, network, highway, zoom_level
+                     SELECT 'inline' AS render, the_geom, network, highway, zoomlevel
                      FROM skeletron_routes
                  ) AS routes
 
                  WHERE network IN ('US:I')
-                   AND zoom_level = 11
+                   AND zoomlevel = 11
 
                  ORDER BY render DESC) AS routes_z7
                 ]]></Parameter>
@@ -160,16 +160,16 @@
                 (SELECT the_geom, render
 
                  FROM (
-                     SELECT 'outline' AS render, the_geom, network, highway, zoom_level
+                     SELECT 'outline' AS render, the_geom, network, highway, zoomlevel
                      FROM skeletron_routes
                      UNION
-                     SELECT 'inline' AS render, the_geom, network, highway, zoom_level
+                     SELECT 'inline' AS render, the_geom, network, highway, zoomlevel
                      FROM skeletron_routes
                  ) AS routes
 
                  WHERE (network IN ('US:I', 'US:US')
                         OR (network LIKE 'US:__' AND highway IN ('motorway')))
-                   AND zoom_level = 12
+                   AND zoomlevel = 12
 
                  ORDER BY render DESC) AS routes_z8
                 ]]></Parameter>
@@ -190,16 +190,16 @@
                 (SELECT the_geom, render
 
                  FROM (
-                     SELECT 'outline' AS render, the_geom, network, highway, zoom_level
+                     SELECT 'outline' AS render, the_geom, network, highway, zoomlevel
                      FROM skeletron_routes
                      UNION
-                     SELECT 'inline' AS render, the_geom, network, highway, zoom_level
+                     SELECT 'inline' AS render, the_geom, network, highway, zoomlevel
                      FROM skeletron_routes
                  ) AS routes
 
                  WHERE (network IN ('US:I', 'US:US')
                         OR (network LIKE 'US:__' AND highway IN ('motorway', 'trunk')))
-                   AND zoom_level = 13
+                   AND zoomlevel = 13
 
                  ORDER BY render DESC) AS routes_z9
                 ]]></Parameter>
@@ -220,16 +220,16 @@
                 (SELECT the_geom, render
 
                  FROM (
-                     SELECT 'outline' AS render, the_geom, network, highway, zoom_level
+                     SELECT 'outline' AS render, the_geom, network, highway, zoomlevel
                      FROM skeletron_routes
                      UNION
-                     SELECT 'inline' AS render, the_geom, network, highway, zoom_level
+                     SELECT 'inline' AS render, the_geom, network, highway, zoomlevel
                      FROM skeletron_routes
                  ) AS routes
 
                  WHERE (network IN ('US:I', 'US:US')
                         OR (network LIKE 'US:__' AND highway IN ('motorway', 'trunk', 'primary')))
-                   AND zoom_level = 14
+                   AND zoomlevel = 14
 
                  ORDER BY render DESC) AS routes_z10
                 ]]></Parameter>
@@ -318,20 +318,21 @@
             <Parameter name="extent">&epsg900913_extent;</Parameter>
             <Parameter name="table"><![CDATA[
             (
-                SELECT place, name, COALESCE(population, 0) AS population, way,
-                      (CASE WHEN population >= 250000 THEN 32
-                            WHEN population >= 50000 THEN 24
+                SELECT place, name, COALESCE(CAST(population AS integer), 0) AS population, way,
+                      (CASE WHEN CAST(population AS integer) >= 250000 THEN 32
+                            WHEN CAST(population AS integer) >= 50000 THEN 24
                             WHEN place IN ('city', 'town') THEN 24
                             ELSE 18
                             END) AS font_size
-                FROM places_osm_point
+                FROM planet_osm_point
                 WHERE place IN ('city', 'town', 'village', 'hamlet')
-                ORDER BY population DESC
+                ORDER BY CAST(population AS integer) DESC
             ) AS labels
             ]]></Parameter>
         </Datasource>
     </Layer>    
 
+    <!--
     <Layer id="airports" srs="&epsg900913;">
         <Datasource>
             <Parameter name="type">postgis</Parameter>
@@ -344,7 +345,8 @@
             <Parameter name="extent">&epsg900913_extent;</Parameter>
             <Parameter name="table">airports</Parameter>
         </Datasource>
-    </Layer>    
+    </Layer>
+    -->
 
     <!--
     <Layer id="road-labels" class="labels" srs="&epsg900913;">
@@ -372,11 +374,11 @@
             <Parameter name="estimate_extent">false</Parameter>
             <Parameter name="extent">&epsg900913_extent;</Parameter>
             <Parameter name="table"><![CDATA[
-                (SELECT network, ref, highway, is_state, the_geom, zoom_level AS show_zoom,
+                (SELECT network, ref, highway, is_state, the_geom, zoomlevel AS show_zoom,
                         LENGTH(ref) AS ref_len
                 FROM skeletron_routes_cleanrefs
                 WHERE (is_national = 1 OR is_state = 1)
-                  AND zoom_level >= 11) AS shields]]></Parameter>
+                  AND zoomlevel >= 11) AS shields]]></Parameter>
         </Datasource>
     </Layer>
 
@@ -432,7 +434,7 @@
             <Parameter name="estimate_extent">false</Parameter>
             <Parameter name="extent">&epsg900913_extent;</Parameter>
             <Parameter name="table"><![CDATA[
-                (SELECT name, the_geom, zoom_level AS show_zoom,
+                (SELECT name, the_geom, zoomlevel AS show_zoom,
                         (CASE WHEN name ~* E'\\mavenue$' THEN regexp_replace(name, E'\\m(ave)nue$', E'\\1', 'i')
                               WHEN name ~* E'\\mboulevard$' THEN regexp_replace(name, E'\\m(b)oulevard$', E'\\1lvd', 'i')
                               WHEN name ~* E'\\mexpressway$' THEN regexp_replace(name, E'\\m(E)xpressway$', E'\\1xpwy', 'i')
