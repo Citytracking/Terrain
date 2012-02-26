@@ -1,7 +1,7 @@
 -- skeletron_roads
 -- 
 --  gid        | integer               | not null default nextval('skeletron_roads_gid_seq'::regclass)
---  zoom_level | bigint                | 
+--  zoomlevel  | bigint                | 
 --  name       | character varying(80) | 
 --  pixel_widt | numeric               | 
 --  the_geom   | geometry              | 
@@ -15,7 +15,7 @@
 --  highway    | character varying(80) | 
 --  the_geom   | geometry              | 
 --  source     | character varying(16) | 
---  zoom_level | integer               | 
+--  zoomlevel  | integer               | 
 
 DROP VIEW IF EXISTS skeletron_routes_cleanrefs;
 
@@ -67,7 +67,7 @@ CREATE VIEW skeletron_routes_cleanrefs AS
 
          highway,
          source,
-         zoom_level,
+         zoomlevel,
          the_geom
   FROM skeletron_routes;
 
