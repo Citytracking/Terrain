@@ -6,8 +6,9 @@ MOS_LATLON = 55.882322 37.724175
 all: index.html background.xml cities.xml cities-halomask.xml
 
 stack.html: \
-	renders/sanfrancisco-14-hillshading.jpg renders/sanfrancisco-14-background.png \
-	renders/sanfrancisco-14-water-mask.png
+	renders/sanfrancisco-14-land-cover.jpg renders/sanfrancisco-14-hillshading.jpg \
+	renders/sanfrancisco-14-background.png renders/sanfrancisco-14-water-mask.png \
+	renders/sanfrancisco-14-grey-roads.png
 
 index.html: \
 	renders/sanfrancisco-10.png renders/sanfrancisco-11.png renders/sanfrancisco-12.png \
@@ -56,6 +57,9 @@ renders/sanfrancisco-15-bg.jpg:
 
 
 
+renders/sanfrancisco-14-land-cover.jpg:
+	tilestache-compose.py -c ../tilestache.cfg -l land-cover -n $(SFO_LATLON) -z 14 -d 1024 512 $@
+
 renders/sanfrancisco-14-hillshading.jpg:
 	tilestache-compose.py -c ../tilestache.cfg -l hillshading -n $(SFO_LATLON) -z 14 -d 1024 512 $@
 
@@ -64,6 +68,9 @@ renders/sanfrancisco-14-background.png: background.xml
 
 renders/sanfrancisco-14-water-mask.png:
 	python mapnik-render.py -f fonts -s water-mask.xml -l $(SFO_LATLON) -z 14 -d 1024 512 -o $@
+
+renders/sanfrancisco-14-grey-roads.png: style.xml
+	python mapnik-render.py -f fonts -s style.xml -l $(SFO_LATLON) -z 14 -d 1024 512 -o $@
 
 
 
