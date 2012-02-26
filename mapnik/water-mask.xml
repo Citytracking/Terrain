@@ -46,7 +46,7 @@
     <StyleName>black-land</StyleName>
     <Datasource>
       <Parameter name="type">postgis</Parameter>
-      <Parameter name="dbname">coastline</Parameter>
+      <Parameter name="dbname">planet_osm</Parameter>
       <Parameter name="user">osm</Parameter>
       <Parameter name="table">coastline</Parameter>
       <Parameter name="estimate_extent">false</Parameter>
