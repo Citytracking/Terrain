@@ -5,7 +5,7 @@ MOS_LATLON = 55.882322 37.724175
 
 all: index.html background.xml cities.xml cities-halomask.xml
 
-stack.html: \
+index.html: \
 	renders/sanfrancisco-14-land-cover.jpg renders/sanfrancisco-14-hillshading.jpg \
 	renders/sanfrancisco-14-background.png renders/sanfrancisco-14-water-mask.png \
 	renders/sanfrancisco-14-grey-roads.png renders/sanfrancisco-14-city-names-halomask.png \
@@ -21,51 +21,7 @@ stack.html: \
 	renders/sanfrancisco-8-grey-roads.png renders/sanfrancisco-8-city-names-halomask.png \
 	renders/sanfrancisco-8-city-names.png renders/sanfrancisco-8-terrain.jpg \
 	renders/sanfrancisco-8-terrain-background.jpg
-
-index.html: \
-	renders/sanfrancisco-10.png renders/sanfrancisco-11.png renders/sanfrancisco-12.png \
-	renders/sanfrancisco-13.png renders/sanfrancisco-14.png renders/sanfrancisco-15.png \
-	renders/sanfrancisco-10-bg.jpg renders/sanfrancisco-11-bg.jpg renders/sanfrancisco-12-bg.jpg \
-	renders/sanfrancisco-13-bg.jpg renders/sanfrancisco-14-bg.jpg renders/sanfrancisco-15-bg.jpg
-
-
-
-renders/sanfrancisco-10.png: style.xml
-	python mapnik-render.py -f fonts -s style.xml -l $(SFO_LATLON) -z 10 -d 1024 512 -o $@
-
-renders/sanfrancisco-11.png: style.xml
-	python mapnik-render.py -f fonts -s style.xml -l $(SFO_LATLON) -z 11 -d 1024 512 -o $@
-
-renders/sanfrancisco-12.png: style.xml
-	python mapnik-render.py -f fonts -s style.xml -l $(SFO_LATLON) -z 12 -d 1024 512 -o $@
-
-renders/sanfrancisco-13.png: style.xml
-	python mapnik-render.py -f fonts -s style.xml -l $(SFO_LATLON) -z 13 -d 1024 512 -o $@
-
-renders/sanfrancisco-14.png: style.xml
-	python mapnik-render.py -f fonts -s style.xml -l $(SFO_LATLON) -z 14 -d 1024 512 -o $@
-
-renders/sanfrancisco-15.png: style.xml
-	python mapnik-render.py -f fonts -s style.xml -l $(SFO_LATLON) -z 15 -d 1024 512 -o $@
-
-
-renders/sanfrancisco-10-bg.jpg:
-	python modestmaps-compose.py -c $(SFO_LATLON) -z 10 -p "http://tilefarm.stamen.com/imhof-hills/{Z}/{X}/{Y}.jpg" -d 1024 512 $@
-
-renders/sanfrancisco-11-bg.jpg:
-	python modestmaps-compose.py -c $(SFO_LATLON) -z 11 -p "http://tilefarm.stamen.com/imhof-hills/{Z}/{X}/{Y}.jpg" -d 1024 512 $@
-
-renders/sanfrancisco-12-bg.jpg:
-	python modestmaps-compose.py -c $(SFO_LATLON) -z 12 -p "http://tilefarm.stamen.com/imhof-hills/{Z}/{X}/{Y}.jpg" -d 1024 512 $@
-
-renders/sanfrancisco-13-bg.jpg:
-	python modestmaps-compose.py -c $(SFO_LATLON) -z 13 -p "http://tilefarm.stamen.com/imhof-hills/{Z}/{X}/{Y}.jpg" -d 1024 512 $@
-
-renders/sanfrancisco-14-bg.jpg:
-	python modestmaps-compose.py -c $(SFO_LATLON) -z 14 -p "http://tilefarm.stamen.com/imhof-hills/{Z}/{X}/{Y}.jpg" -d 1024 512 $@
-
-renders/sanfrancisco-15-bg.jpg:
-	python modestmaps-compose.py -c $(SFO_LATLON) -z 15 -p "http://tilefarm.stamen.com/imhof-hills/{Z}/{X}/{Y}.jpg" -d 1024 512 $@
+	touch index.html
 
 
 
@@ -155,20 +111,24 @@ renders/sanfrancisco-8-terrain-background.jpg: background.xml
 
 
 style.xml: style.mml stylesheet.mss routes.mss
-	cascadenik-compile.py style.mml style.xml
+	cascadenik-compile.py style.mml $@
+	chmod a+r $@
 
 background.xml: background.mml background.mss
-	cascadenik-compile.py background.mml background.xml
+	cascadenik-compile.py background.mml $@
+	chmod a+r $@
 
 cities.xml: cities.mml cities.mss routes.mss states.mss
-	cascadenik-compile.py cities.mml cities.xml
+	cascadenik-compile.py cities.mml $@
+	chmod a+r $@
 
 cities-halomask.xml: cities-halomask.mml cities.mss
-	cascadenik-compile.py cities-halomask.mml cities-halomask.xml
+	cascadenik-compile.py cities-halomask.mml $@
+	chmod a+r $@
 
 clean:
 	rm -f renders/sanfrancisco-*.png
-	rm -f renders/sanfrancisco-*-bg.jpg
+	rm -f renders/sanfrancisco-*.jpg
 	rm -f style.xml
 	rm -f background.xml
 	rm -f cities.xml
