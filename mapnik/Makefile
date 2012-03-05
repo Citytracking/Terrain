@@ -10,14 +10,17 @@ index.html: \
 	renders/sanfrancisco-14-grey-roads.png renders/sanfrancisco-14-city-names-halomask.png \
 	renders/sanfrancisco-14-city-names.png \
 	renders/sanfrancisco-14-labels.png \
+	renders/sanfrancisco-14-labels-halomask.png \
 	renders/sanfrancisco-11-background.png renders/sanfrancisco-11-water-mask.png \
 	renders/sanfrancisco-11-grey-roads.png renders/sanfrancisco-11-city-names-halomask.png \
 	renders/sanfrancisco-11-city-names.png \
 	renders/sanfrancisco-11-labels.png \
+	renders/sanfrancisco-11-labels-halomask.png \
 	renders/sanfrancisco-8-background.png renders/sanfrancisco-8-water-mask.png \
 	renders/sanfrancisco-8-grey-roads.png renders/sanfrancisco-8-city-names-halomask.png \
 	renders/sanfrancisco-8-city-names.png \
-	renders/sanfrancisco-8-labels.png
+	renders/sanfrancisco-8-labels.png \
+	renders/sanfrancisco-8-labels-halomask.png
 	touch index.html
 
 
@@ -40,6 +43,9 @@ renders/sanfrancisco-14-city-names.png: cities.xml
 renders/sanfrancisco-14-labels.png: labels.xml
 	python mapnik-render.py -f fonts -s labels.xml -l $(NYC_LATLON) -z 14 -d 1024 512 -o $@
 
+renders/sanfrancisco-14-labels-halomask.png: labels-halomask.xml
+	python mapnik-render.py -f fonts -s labels-halomask.xml -l $(NYC_LATLON) -z 14 -d 1024 512 -o $@
+
 
 renders/sanfrancisco-11-background.png: background.xml
 	python mapnik-render.py -f fonts -s background.xml -l $(SFO_LATLON) -z 11 -d 1024 512 -o $@
@@ -59,6 +65,9 @@ renders/sanfrancisco-11-city-names.png: cities.xml
 renders/sanfrancisco-11-labels.png: labels.xml
 	python mapnik-render.py -f fonts -s labels.xml -l $(NYC_LATLON) -z 11 -d 1024 512 -o $@
 
+renders/sanfrancisco-11-labels-halomask.png: labels-halomask.xml
+	python mapnik-render.py -f fonts -s labels-halomask.xml -l $(NYC_LATLON) -z 11 -d 1024 512 -o $@
+
 
 renders/sanfrancisco-8-background.png: background.xml
 	python mapnik-render.py -f fonts -s background.xml -l $(SFO_LATLON) -z 8 -d 1024 512 -o $@
@@ -77,6 +86,9 @@ renders/sanfrancisco-8-city-names.png: cities.xml
 
 renders/sanfrancisco-8-labels.png: labels.xml
 	python mapnik-render.py -f fonts -s labels.xml -l $(NYC_LATLON) -z 8 -d 1024 512 -o $@
+
+renders/sanfrancisco-8-labels-halomask.png: labels-halomask.xml
+	python mapnik-render.py -f fonts -s labels-halomask.xml -l $(NYC_LATLON) -z 8 -d 1024 512 -o $@
 
 
 
@@ -98,4 +110,8 @@ labels.xml: labels.mml labels.mss cities.mss states.mss routes.mss
 
 cities-halomask.xml: cities-halomask.mml cities.mss
 	cascadenik-compile.py cities-halomask.mml $@
+	chmod a+r $@
+
+labels-halomask.xml: labels-halomask.mml labels.mss cities.mss states.mss routes.mss
+	cascadenik-compile.py labels-halomask.mml $@
 	chmod a+r $@
