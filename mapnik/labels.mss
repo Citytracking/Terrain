@@ -130,10 +130,17 @@ Map
     text-size: 15;
 }
 
-/*
+#green-areas[zoom=8][sq_km>209.72][sq_km<3276800] name,
 #green-areas[zoom=9][sq_km>52.4288][sq_km<819200] name,
-#green-areas[zoom=10][sq_km>13.107][sq_km<204800] name,
-*/
+#green-areas[zoom=10][sq_km>13.107][sq_km<204800] name
+{
+    text-face-name: 'PT Sans Narrow Regular';
+    text-fill: #374c30;
+    text-size: 15;
+    
+    text-wrap-width: 96;
+}
+
 #green-areas[zoom=11][sq_km>3.2768][sq_km<51200] name,
 #green-areas[zoom=12][sq_km>0.8192][sq_km<25600] name,
 #green-areas[zoom=13][sq_km>0.2048][sq_km<12800] name,
