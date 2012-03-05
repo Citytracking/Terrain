@@ -35,10 +35,10 @@ renders/sanfrancisco-14-city-names-halomask.png: cities-halomask.xml
 	python mapnik-render.py -f fonts -s cities-halomask.xml -l $(SFO_LATLON) -z 14 -d 1024 512 -o $@
 
 renders/sanfrancisco-14-city-names.png: cities.xml
-	python mapnik-render.py -f fonts -s cities.xml -l $(SFO_LATLON) -z 14 -d 1024 512 -o $@
+	python mapnik-render.py -f fonts -s cities.xml -l $(NYC_LATLON) -z 14 -d 1024 512 -o $@
 
 renders/sanfrancisco-14-labels.png: labels.xml
-	python mapnik-render.py -f fonts -s labels.xml -l $(SFO_LATLON) -z 14 -d 1024 512 -o $@
+	python mapnik-render.py -f fonts -s labels.xml -l $(NYC_LATLON) -z 14 -d 1024 512 -o $@
 
 
 renders/sanfrancisco-11-background.png: background.xml
@@ -54,10 +54,10 @@ renders/sanfrancisco-11-city-names-halomask.png: cities-halomask.xml
 	python mapnik-render.py -f fonts -s cities-halomask.xml -l $(SFO_LATLON) -z 11 -d 1024 512 -o $@
 
 renders/sanfrancisco-11-city-names.png: cities.xml
-	python mapnik-render.py -f fonts -s cities.xml -l $(SFO_LATLON) -z 11 -d 1024 512 -o $@
+	python mapnik-render.py -f fonts -s cities.xml -l $(NYC_LATLON) -z 11 -d 1024 512 -o $@
 
 renders/sanfrancisco-11-labels.png: labels.xml
-	python mapnik-render.py -f fonts -s labels.xml -l $(SFO_LATLON) -z 11 -d 1024 512 -o $@
+	python mapnik-render.py -f fonts -s labels.xml -l $(NYC_LATLON) -z 11 -d 1024 512 -o $@
 
 
 renders/sanfrancisco-8-background.png: background.xml
@@ -73,10 +73,10 @@ renders/sanfrancisco-8-city-names-halomask.png: cities-halomask.xml
 	python mapnik-render.py -f fonts -s cities-halomask.xml -l $(SFO_LATLON) -z 8 -d 1024 512 -o $@
 
 renders/sanfrancisco-8-city-names.png: cities.xml
-	python mapnik-render.py -f fonts -s cities.xml -l $(SFO_LATLON) -z 8 -d 1024 512 -o $@
+	python mapnik-render.py -f fonts -s cities.xml -l $(NYC_LATLON) -z 8 -d 1024 512 -o $@
 
 renders/sanfrancisco-8-labels.png: labels.xml
-	python mapnik-render.py -f fonts -s labels.xml -l $(SFO_LATLON) -z 8 -d 1024 512 -o $@
+	python mapnik-render.py -f fonts -s labels.xml -l $(NYC_LATLON) -z 8 -d 1024 512 -o $@
 
 
 
@@ -92,7 +92,7 @@ cities.xml: cities.mml cities.mss routes.mss states.mss
 	cascadenik-compile.py cities.mml $@
 	chmod a+r $@
 
-labels.xml: labels.mml labels.mss routes.mss
+labels.xml: labels.mml labels.mss cities.mss states.mss routes.mss
 	cascadenik-compile.py labels.mml $@
 	chmod a+r $@
 
