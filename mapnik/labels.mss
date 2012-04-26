@@ -22,33 +22,16 @@ Map
 #place-names[font_size=24] name { text-size: 24; }
 #place-names[font_size=32] name { text-size: 32; }
 
-/*
-#airports[zoom=2][natlscale>148],
-#airports[zoom=3][natlscale>74],
-#airports[zoom=4][natlscale>37],
-#airports[zoom=5][natlscale>18],
-#airports[zoom=6][natlscale>9.2],
-#airports[zoom=7][natlscale>4.6],
-*/
 #airports[zoom=8][natlscale>2.3],
 #airports[zoom=9][natlscale>1.2],
 #airports[zoom=10][natlscale>.57],
 #airports[zoom=11][natlscale>.29],
-/*
-#airports[zoom=12][natlscale>.14],
-#airports[zoom=13][natlscale>.07]
-*/
 #airports[zoom=12][natlscale>.29],
 #airports[zoom=13][natlscale>.29]
 {
     point-file: url('icons/airplane-19.png');
 }
 
-/*
-#airports[zoom=14][natlscale>.04],
-#airports[zoom=15][natlscale>.02],
-#airports[zoom>=16][natlscale>.01]
-*/
 #airports[zoom=14][natlscale>.29],
 #airports[zoom=15][natlscale>.29],
 #airports[zoom>=16][natlscale>.29]
