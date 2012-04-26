@@ -165,6 +165,18 @@
             <Parameter name="estimate_extent">false</Parameter>
             <Parameter name="extent">&epsg900913_extent;</Parameter>
             <Parameter name="table">airports</Parameter>
+            <Parameter name="table"><![CDATA[
+            (
+                SELECT *,
+                      (CASE WHEN type_nvk IN ('major', 'military major', 'major and military') THEN 'big'
+                            WHEN type_nvk IN ('military', 'military micro', 'military mid', 'mid and military') THEN 'military'
+                            WHEN type_nvk IN ('spaceport rocketlaunch', 'spaceport mid', 'spaceport') THEN 'space'
+                            ELSE 'little'
+                            END) AS type
+                FROM airports
+                ORDER BY natlscale DESC
+            ) AS airports
+            ]]></Parameter>
         </Datasource>
     </Layer>
 
