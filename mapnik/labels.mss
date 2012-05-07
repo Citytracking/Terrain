@@ -160,8 +160,7 @@ Map
 #road-labels-skeletron[show_zoom=12][zoom=12] name_abbr,
 #road-labels-skeletron[show_zoom=13][zoom=13] name_abbr,
 #road-labels-skeletron[show_zoom=14][zoom=14] name_abbr,
-#road-labels-skeletron[show_zoom=15][zoom=15] name_abbr,
-#road-labels-skeletron[show_zoom=16][zoom>=16] name_abbr,
+#road-labels-skeletron[show_zoom=15][zoom>=15] name_abbr,
 #road-labels-full[zoom>=15] name_abbr
 {
     text-spacing: 256;
