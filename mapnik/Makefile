@@ -71,7 +71,7 @@ renders/sanfrancisco-8-labels-halomask.png: labels-halomask.xml
 
 
 
-background.xml: background.mml background.mss
+background.xml: background.mml background.ini background.mss
 	cascadenik-compile.py background.mml $@
 	chmod a+r $@
 
