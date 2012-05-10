@@ -10,12 +10,12 @@ Map
 }
 
 /*
-#green-areas[zoom=8][sq_km>=3200],
-#green-areas[zoom=9][sq_km>=1600],
-#green-areas[zoom=10][sq_km>=800],
-#green-areas[zoom=11][sq_km>=400],
-#green-areas[zoom=12][sq_km>=200],
-#green-areas[zoom=13][sq_km>=100],
+#green-areas-low[zoom=8][sq_km>=3200],
+#green-areas-low[zoom=9][sq_km>=1600],
+#green-areas-low[zoom=10][sq_km>=800],
+#green-areas-med[zoom=11][sq_km>=400],
+#green-areas-med[zoom=12][sq_km>=200],
+#green-areas-med[zoom=13][sq_km>=100],
 #green-areas[zoom=14][sq_km>=50],
 #green-areas[zoom=15][sq_km>=25],
 #green-areas[zoom=16][sq_km>=13],
@@ -28,11 +28,11 @@ Map
 }
 */
 
-#green-areas[zoom=8][sq_km>0.0256][sq_km<6400],
-#green-areas[zoom=9][sq_km>0.0128][sq_km<3200],
-#green-areas[zoom=10][sq_km>0.0064][sq_km<1600],
-#green-areas[zoom=11][sq_km>0.0032][sq_km<800],
-#green-areas[zoom=12][sq_km>0.0016][sq_km<400],
+#green-areas-low[zoom=8][sq_km>0.0256][sq_km<6400],
+#green-areas-low[zoom=9][sq_km>0.0128][sq_km<3200],
+#green-areas-low[zoom=10][sq_km>0.0064][sq_km<1600],
+#green-areas-med[zoom=11][sq_km>0.0032][sq_km<800],
+#green-areas-med[zoom=12][sq_km>0.0016][sq_km<400],
 #green-areas[zoom>=13][sq_km<200]
 {
     polygon-fill: #c1d4b4;
@@ -40,17 +40,17 @@ Map
 }
 
 /* darken color as we zoom out to blend with background */
-#green-areas[zoom=12][sq_km>0.0016][sq_km<400]  { polygon-fill: #b7ccab; }
-#green-areas[zoom=11][sq_km>0.0032][sq_km<800]  { polygon-fill: #adc2a1; }
-#green-areas[zoom=10][sq_km>0.0064][sq_km<1600] { polygon-fill: #a1b997; }
-#green-areas[zoom=9][sq_km>0.0128][sq_km<3200]  { polygon-fill: #8ba77f; }
-#green-areas[zoom=8][sq_km>0.0256][sq_km<6400]  { polygon-fill: #819d75; }
+#green-areas-med[zoom=12][sq_km>0.0016][sq_km<400]  { polygon-fill: #b7ccab; }
+#green-areas-med[zoom=11][sq_km>0.0032][sq_km<800]  { polygon-fill: #adc2a1; }
+#green-areas-low[zoom=10][sq_km>0.0064][sq_km<1600] { polygon-fill: #a1b997; }
+#green-areas-low[zoom=9][sq_km>0.0128][sq_km<3200]  { polygon-fill: #8ba77f; }
+#green-areas-low[zoom=8][sq_km>0.0256][sq_km<6400]  { polygon-fill: #819d75; }
 
-#green-areas[zoom=8][sq_km>0.0128][sq_km<3200],
-#green-areas[zoom=9][sq_km>0.0064][sq_km<1600],
-#green-areas[zoom=10][sq_km>0.0032][sq_km<800],
-#green-areas[zoom=11][sq_km>0.0016][sq_km<400],
-#green-areas[zoom=12][sq_km>0.0008][sq_km<200],
+#green-areas-low[zoom=8][sq_km>0.0128][sq_km<3200],
+#green-areas-low[zoom=9][sq_km>0.0064][sq_km<1600],
+#green-areas-low[zoom=10][sq_km>0.0032][sq_km<800],
+#green-areas-med[zoom=11][sq_km>0.0016][sq_km<400],
+#green-areas-med[zoom=12][sq_km>0.0008][sq_km<200],
 #green-areas[zoom>=13][sq_km<100]
 {
     polygon-opacity: 1.0;
