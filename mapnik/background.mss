@@ -4,7 +4,9 @@ Map
     map-bgcolor: transparent;
 }
 
-#grey-areas[zoom>=9]
+#grey-areas-low[zoom>=9][zoom<11],
+#grey-areas-med[zoom>=11][zoom<14],
+#grey-areas[zoom>=14]
 {
     polygon-fill: #f2f2ea;
 }
@@ -89,11 +91,12 @@ Map
     line-width: 1;
 }
 
+#waterways-med,
 #waterways
 {
     line-color: #a6c9eb;
 }
 
-#waterways[zoom=13] { line-width: 1; }
+#waterways-med[zoom=13] { line-width: 1; }
 #waterways[zoom=14] { line-width: 2; }
 #waterways[zoom>=15] { line-width: 3; }

@@ -21,6 +21,8 @@
     <Stylesheet src="background.mss" />
 
     <Layer id="grey-areas" source_name="grey_areas" />
+    <Layer id="grey-areas-med" source_name="grey_areas-med" />
+    <Layer id="grey-areas-low" source_name="grey_areas-low" />
 
     <Layer id="green-areas" source_name="green_areas" />
     <Layer id="green-areas-med" source_name="green_areas-med" />
@@ -31,5 +33,6 @@
     <Layer id="aeroways-low" source_name="aeroways-low" />
 
     <Layer id="waterways" source_name="waterways" />
+    <Layer id="waterways-med" source_name="waterways-med" />
     
 </Map>
