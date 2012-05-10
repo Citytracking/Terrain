@@ -22,7 +22,11 @@
 
     <Layer id="grey-areas" source_name="grey_areas" />
     <Layer id="green-areas" source_name="green_areas" />
+
     <Layer id="aeroways" source_name="aeroways" />
+    <Layer id="aeroways-med" source_name="aeroways-med" />
+    <Layer id="aeroways-low" source_name="aeroways-low" />
+
     <Layer id="waterways" source_name="waterways" />
     
 </Map>

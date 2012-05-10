@@ -56,6 +56,8 @@ Map
     polygon-opacity: 1.0;
 }
 
+#aeroways-low,
+#aeroways-med,
 #aeroways
 {
     line-color: #c8cebe;
@@ -63,17 +65,17 @@ Map
     line-join: miter;
 }
 
-#aeroways[type=runway][zoom=10] { line-width: 1; }
-#aeroways[type=runway][zoom=11] { line-width: 1.5; }
-#aeroways[type=runway][zoom=12] { line-width: 2; }
-#aeroways[type=runway][zoom=13] { line-width: 4; }
+#aeroways-low[type=runway][zoom=10] { line-width: 1; }
+#aeroways-med[type=runway][zoom=11] { line-width: 1.5; }
+#aeroways-med[type=runway][zoom=12] { line-width: 2; }
+#aeroways-med[type=runway][zoom=13] { line-width: 4; }
 #aeroways[type=runway][zoom=14] { line-width: 8; }
 #aeroways[type=runway][zoom=15] { line-width: 16; }
 #aeroways[type=runway][zoom=16] { line-width: 32; }
 #aeroways[type=runway][zoom=17] { line-width: 64; }
 #aeroways[type=runway][zoom>=18] { line-width: 128; }
 
-#aeroways[type=taxiway][zoom=13] { line-width: 1; }
+#aeroways-med[type=taxiway][zoom=13] { line-width: 1; }
 #aeroways[type=taxiway][zoom=14] { line-width: 2; }
 #aeroways[type=taxiway][zoom=15] { line-width: 4; }
 #aeroways[type=taxiway][zoom=16] { line-width: 8; }
