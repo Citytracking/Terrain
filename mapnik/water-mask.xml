@@ -1,78 +1,113 @@
-<Map bgcolor="white" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null">
-  <Style name="white-water">
-    <Rule>
+<Map background-color="rgb(255,255,255)" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs +over">
+  <Style name="line style 4">
+    <Rule name="rule 2">
+      <LineSymbolizer />
+    </Rule>
+  </Style>
+  <Style name="polygon style 1">
+    <Rule name="rule 1">
       <PolygonSymbolizer>
-        <CssParameter name="fill">white</CssParameter>
+        <CssParameter name="fill">rgb(0,0,0)</CssParameter>
       </PolygonSymbolizer>
     </Rule>
   </Style>
-  <Style name="black-land">
-    <Rule>
-      <PolygonSymbolizer>
-        <CssParameter name="fill">black</CssParameter>
-      </PolygonSymbolizer>
-      <LineSymbolizer>
-        <CssParameter name="stroke">black</CssParameter>
-        <CssParameter name="stroke-width">1</CssParameter>
-      </LineSymbolizer>
-    </Rule>
-  </Style>
-  <Style name="white-river">
-    <Rule>
+  <Style name="polygon style 15">
+    <Rule name="rule 4">
       <MinScaleDenominator>50000</MinScaleDenominator>
-      <MaxScaleDenominator>100000</MaxScaleDenominator>
-      <LineSymbolizer>
-        <CssParameter name="stroke">white</CssParameter>
-        <CssParameter name="stroke-width">1</CssParameter>
-      </LineSymbolizer>
-    </Rule>
-    <Rule>
-      <MinScaleDenominator>25000</MinScaleDenominator>
-      <MaxScaleDenominator>50000</MaxScaleDenominator>
-      <LineSymbolizer>
-        <CssParameter name="stroke">white</CssParameter>
-        <CssParameter name="stroke-width">2</CssParameter>
-      </LineSymbolizer>
-    </Rule>
-    <Rule>
-      <MaxScaleDenominator>25000</MaxScaleDenominator>
-      <LineSymbolizer>
-        <CssParameter name="stroke">white</CssParameter>
-        <CssParameter name="stroke-width">3</CssParameter>
-      </LineSymbolizer>
+      <MaxScaleDenominator>399999</MaxScaleDenominator>
+      <PolygonSymbolizer>
+        <CssParameter name="fill">rgb(255,255,255)</CssParameter>
+      </PolygonSymbolizer>
     </Rule>
   </Style>
-  <Layer name="land" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null" status="on">
-    <StyleName>black-land</StyleName>
+  <Style name="polygon style 22">
+    <Rule name="rule 5">
+      <MinScaleDenominator>400000</MinScaleDenominator>
+      <PolygonSymbolizer>
+        <CssParameter name="fill">rgb(255,255,255)</CssParameter>
+      </PolygonSymbolizer>
+    </Rule>
+  </Style>
+  <Style name="polygon style 8">
+    <Rule name="rule 3">
+      <MaxScaleDenominator>49999</MaxScaleDenominator>
+      <PolygonSymbolizer>
+        <CssParameter name="fill">rgb(255,255,255)</CssParameter>
+      </PolygonSymbolizer>
+    </Rule>
+  </Style>
+  <Layer name="layer 7" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs +over">
+    <StyleName>polygon style 1</StyleName>
+    <StyleName>line style 4</StyleName>
     <Datasource>
-      <Parameter name="type">postgis</Parameter>
       <Parameter name="dbname">planet_osm</Parameter>
-      <Parameter name="user">osm</Parameter>
+      <Parameter name="estimate_extent">False</Parameter>
+      <Parameter name="extent">-20037508,-20037508,20037508,20037508</Parameter>
+      <Parameter name="host">localhost</Parameter>
+      <Parameter name="password">None</Parameter>
+      <Parameter name="port">5432</Parameter>
       <Parameter name="table">coastline</Parameter>
-      <Parameter name="estimate_extent">false</Parameter>
-      <Parameter name="extent">-20037508,-20037508,20037508,20037508</Parameter>
+      <Parameter name="type">postgis</Parameter>
+      <Parameter name="user">osm</Parameter>
     </Datasource>
   </Layer>
-  <Layer name="water" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null" status="on">
-    <StyleName>white-water</StyleName>
+  <Layer name="layer 14" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs +over">
+    <StyleName>polygon style 8</StyleName>
     <Datasource>
-      <Parameter name="type">postgis</Parameter>
       <Parameter name="dbname">planet_osm</Parameter>
-      <Parameter name="user">osm</Parameter>
-      <Parameter name="table">(SELECT way FROM planet_osm_polygon WHERE "natural" IN ('water', 'bay') OR waterway = 'riverbank' OR landuse = 'reservoir') AS foo</Parameter>
-      <Parameter name="estimate_extent">false</Parameter>
+      <Parameter name="estimate_extent">False</Parameter>
       <Parameter name="extent">-20037508,-20037508,20037508,20037508</Parameter>
+      <Parameter name="host">localhost</Parameter>
+      <Parameter name="password">None</Parameter>
+      <Parameter name="port">5432</Parameter>
+      <Parameter name="table">(SELECT way
+FROM planet_osm_polygon
+WHERE "natural" IN ('water', 'bay')
+OR waterway = 'riverbank'
+OR landuse = 'reservoir'
+) AS water</Parameter>
+      <Parameter name="type">postgis</Parameter>
+      <Parameter name="user">osm</Parameter>
     </Datasource>
   </Layer>
-  <Layer name="river" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null" status="off">
-    <StyleName>white-river</StyleName>
+  <Layer name="layer 21" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs +over">
+    <StyleName>polygon style 15</StyleName>
     <Datasource>
-      <Parameter name="type">postgis</Parameter>
       <Parameter name="dbname">planet_osm</Parameter>
-      <Parameter name="user">osm</Parameter>
-      <Parameter name="table">(SELECT way FROM planet_osm_line  WHERE waterway IS NOT NULL) AS foo</Parameter>
-      <Parameter name="estimate_extent">false</Parameter>
+      <Parameter name="estimate_extent">False</Parameter>
       <Parameter name="extent">-20037508,-20037508,20037508,20037508</Parameter>
+      <Parameter name="host">localhost</Parameter>
+      <Parameter name="password">None</Parameter>
+      <Parameter name="port">5432</Parameter>
+      <Parameter name="table">(SELECT way
+FROM planet_osm_polygon
+WHERE ST_Area(way) &gt; 64 * (20037508*2 / 2^(8 + 13))^2
+AND ("natural" IN ('water', 'bay')
+OR waterway = 'riverbank'
+OR landuse = 'reservoir')
+) AS water</Parameter>
+      <Parameter name="type">postgis</Parameter>
+      <Parameter name="user">osm</Parameter>
+    </Datasource>
+  </Layer>
+  <Layer name="layer 28" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs +over">
+    <StyleName>polygon style 22</StyleName>
+    <Datasource>
+      <Parameter name="dbname">planet_osm</Parameter>
+      <Parameter name="estimate_extent">False</Parameter>
+      <Parameter name="extent">-20037508,-20037508,20037508,20037508</Parameter>
+      <Parameter name="host">localhost</Parameter>
+      <Parameter name="password">None</Parameter>
+      <Parameter name="port">5432</Parameter>
+      <Parameter name="table">(SELECT way
+FROM planet_osm_polygon
+WHERE ST_Area(way) &gt; 64 * (20037508*2 / 2^(8 + 10))^2
+AND ("natural" IN ('water', 'bay')
+OR waterway = 'riverbank'
+OR landuse = 'reservoir')
+) AS water</Parameter>
+      <Parameter name="type">postgis</Parameter>
+      <Parameter name="user">osm</Parameter>
     </Datasource>
   </Layer>
 </Map>

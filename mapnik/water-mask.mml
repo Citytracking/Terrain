@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+    Water-mask.mml provides black land and white water.
+
+-->
+<!DOCTYPE Map[
+    <!ENTITY epsg4326 "+proj=longlat +datum=WGS84">
+    <!ENTITY epsg900913 "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs +over">
+    <!ENTITY epsg900913_extent "-20037508,-20037508,20037508,20037508">
+]>
+<Map srs="&epsg900913;">
+    
+    <DataSourcesConfig src="water-mask.ini" />
+
+    <Stylesheet><![CDATA[
+    
+        Map { map-bgcolor: #fff; }
+        
+        #black-land
+        {
+            polygon-fill: #000;
+            line-color: #000;
+            line-width: 1;
+        }
+
+        #white-water-low[zoom<11],
+        #white-water-med[zoom>=11][zoom<14],
+        #white-water[zoom>=14]
+        {
+            polygon-fill: #fff;
+        }
+        
+        #white-river[zoom>=13] { line-width: 1; line-color: #fff; }
+        #white-river[zoom>=14] { line-width: 2; }
+        #white-river[zoom>=15] { line-width: 3; }
+    
+    ]]></Stylesheet>
+
+    <Layer id="black-land" source_name="black-land" />
+
+    <Layer id="white-water" source_name="white-water" />
+    <Layer id="white-water-med" source_name="white-water-med" />
+    <Layer id="white-water-low" source_name="white-water-low" />
+
+    <Layer id="white-river" source_name="white-river" status="off" />
+    
+</Map>

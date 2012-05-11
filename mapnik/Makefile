@@ -25,7 +25,7 @@ index.html: \
 renders/sanfrancisco-14-background.png: background.xml
 	python mapnik-render.py -f fonts -s background.xml -l $(SFO_LATLON) -z 14 -d 1024 512 -o $@
 
-renders/sanfrancisco-14-water-mask.png:
+renders/sanfrancisco-14-water-mask.png: water-mask.xml
 	python mapnik-render.py -f fonts -s water-mask.xml -l $(SFO_LATLON) -z 14 -d 1024 512 -o $@
 
 renders/sanfrancisco-14-lines.png: lines.xml
@@ -41,7 +41,7 @@ renders/sanfrancisco-14-labels-halomask.png: labels-halomask.xml
 renders/sanfrancisco-11-background.png: background.xml
 	python mapnik-render.py -f fonts -s background.xml -l $(SFO_LATLON) -z 11 -d 1024 512 -o $@
 
-renders/sanfrancisco-11-water-mask.png:
+renders/sanfrancisco-11-water-mask.png: water-mask.xml
 	python mapnik-render.py -f fonts -s water-mask.xml -l $(SFO_LATLON) -z 11 -d 1024 512 -o $@
 
 renders/sanfrancisco-11-lines.png: lines.xml
@@ -57,7 +57,7 @@ renders/sanfrancisco-11-labels-halomask.png: labels-halomask.xml
 renders/sanfrancisco-8-background.png: background.xml
 	python mapnik-render.py -f fonts -s background.xml -l $(SFO_LATLON) -z 8 -d 1024 512 -o $@
 
-renders/sanfrancisco-8-water-mask.png:
+renders/sanfrancisco-8-water-mask.png: water-mask.xml
 	python mapnik-render.py -f fonts -s water-mask.xml -l $(SFO_LATLON) -z 8 -d 1024 512 -o $@
 
 renders/sanfrancisco-8-lines.png: lines.xml
@@ -70,6 +70,10 @@ renders/sanfrancisco-8-labels-halomask.png: labels-halomask.xml
 	python mapnik-render.py -f fonts -s labels-halomask.xml -l $(SFO_LATLON) -z 8 -d 1024 512 -o $@
 
 
+
+water-mask.xml: water-mask.mml water-mask.ini
+	cascadenik-compile.py water-mask.mml $@
+	chmod a+r $@
 
 background.xml: background.mml background.ini background.mss
 	cascadenik-compile.py background.mml $@
