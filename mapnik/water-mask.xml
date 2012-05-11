@@ -81,7 +81,7 @@ OR landuse = 'reservoir'
       <Parameter name="port">5432</Parameter>
       <Parameter name="table">(SELECT way
 FROM planet_osm_polygon
-WHERE ST_Area(way) &gt; 64 * (20037508*2 / 2^(8 + 13))^2
+WHERE ST_Area(way) &gt; (20037508*2 / 2^(8 + 13))^2
 AND ("natural" IN ('water', 'bay')
 OR waterway = 'riverbank'
 OR landuse = 'reservoir')
@@ -101,7 +101,7 @@ OR landuse = 'reservoir')
       <Parameter name="port">5432</Parameter>
       <Parameter name="table">(SELECT way
 FROM planet_osm_polygon
-WHERE ST_Area(way) &gt; 64 * (20037508*2 / 2^(8 + 10))^2
+WHERE ST_Area(way) &gt; (20037508*2 / 2^(8 + 10))^2
 AND ("natural" IN ('water', 'bay')
 OR waterway = 'riverbank'
 OR landuse = 'reservoir')
